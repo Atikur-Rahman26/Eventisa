@@ -1,0 +1,157 @@
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#CC968484"
+        android:padding="20dp">
+
+
+        <LinearLayout
+            android:id="@+id/AdminNameBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="488dp"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.833">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin Name"
+                android:textColor="@color/editTextSubHeading"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/AdminName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/count_background"
+                android:hint="nihal33@gmain.com"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:textColor="@android:color/black"
+                android:textColorHighlight="#F12020"
+                android:textColorHint="#6EA9E4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/emailBoxText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="376dp"
+            android:layout_weight="5"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:layout_width="72dp"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textColor="@color/editTextSubHeading"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/EmailtAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/count_background"
+                android:hint="nihal33@gmain.com"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:textColor="@android:color/black"
+                android:textColorHighlight="#F12020"
+                android:textColorHint="#6EA9E4" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/passwordBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_weight="5"
+
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="@+id/emailBoxText"
+            app:layout_constraintStart_toStartOf="@+id/emailBoxText"
+            app:layout_constraintTop_toBottomOf="@+id/emailBoxText">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Password"
+                android:textColor="@color/editTextSubHeading"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/PassWordAdmin"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+
+                android:layout_marginTop="116dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/count_background"
+                android:hint="*********"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:paddingLeft="20dp"
+                android:textColor="@android:color/black"
+                android:textColorHint="#78ACDF" />
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/AdminLoginButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/count_background"
+            android:backgroundTint="@color/registerBtn"
+            android:text="Login To Admin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/passwordBox" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="246dp"
+            android:layout_height="47dp"
+            android:text="Admin Login"
+            android:textColor="#D32F2F"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

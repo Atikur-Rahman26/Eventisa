@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "865127218546",
+    "firebase_url": "https://eventissa-f6c8d-default-rtdb.firebaseio.com",
+    "project_id": "eventissa-f6c8d",
+    "storage_bucket": "eventissa-f6c8d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865127218546:android:ec1840a7dd711ee9e7b1eb",
+        "android_client_info": {
+          "package_name": "com.atik.eventisa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865127218546-uifbg7tv662a3t10vipnchc92gd5vqkn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDurA4429SzKMgYbLL4ZcEvlPbU-JDyjIk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "865127218546-uifbg7tv662a3t10vipnchc92gd5vqkn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
