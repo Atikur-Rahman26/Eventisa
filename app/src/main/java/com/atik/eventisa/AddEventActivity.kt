@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.atik.eventisa.databinding.ActivityAddEventBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_event.*
 import kotlinx.android.synthetic.main.activity_login.*
 import java.net.URI
@@ -22,10 +23,12 @@ class AddEventActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddEventBinding
     private lateinit var database: DatabaseReference
     private lateinit var ImageUri:Uri
+    private lateinit var storage: FirebaseStorage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
+        storage=FirebaseStorage.getInstance()
 
         uploadImage.setOnClickListener{
             selectImage()
@@ -34,31 +37,61 @@ class AddEventActivity : AppCompatActivity() {
         AddEventButton.setOnClickListener {
 
             if(checking()) {
-                val EventTitle = eventTitle.text.toString()
-                val EventLocation = eventLocation.text.toString()
-                val EventDate = eventDate.text.toString()
-                val EventDescription = eventDescription.text.toString()
-
-                database= FirebaseDatabase.getInstance().getReference("Events")
-                var addevents=EventData(EventDate,EventTitle,EventLocation,EventDescription)
-                database.child(EventTitle).setValue(addevents).addOnSuccessListener {
-                    binding.eventTitle.text.clear()
-                    binding.eventDate.text.clear()
-                    binding.eventLocation.text.clear()
-                    binding.eventDescription.text.clear()
-
-                    Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
-                }.addOnFailureListener {
-                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                if(ImageUri==null){
+                    Toast.makeText(this,"Please select an image ",Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    DowloadUrlAndUpload()
                 }
             }
         }
 
     }
 
+    private fun DowloadUrlAndUpload() {
+
+
+        val EventTitle = eventTitle.text.toString()
+
+
+        val reference=storage.reference.child("EventLogoImg").child(EventTitle)
+        reference.putFile(ImageUri).addOnCompleteListener{
+            if(it.isSuccessful){
+                reference.downloadUrl.addOnSuccessListener { task->
+                    uploadEventInfo(task.toString())
+                }
+            }
+        }
+
+
+    }
+
+    private fun uploadEventInfo(imageUrl: String) {
+
+        val EventTitle = eventTitle.text.toString()
+        val EventLocation = eventLocation.text.toString()
+        val EventDate = eventDate.text.toString()
+        val EventDescription = eventDescription.text.toString()
+
+        database= FirebaseDatabase.getInstance().getReference("Events")
+
+        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription)
+        database.child(EventTitle).setValue(addEvent).addOnSuccessListener {
+            binding.eventTitle.text.clear()
+            binding.eventDate.text.clear()
+            binding.eventLocation.text.clear()
+            binding.eventDescription.text.clear()
+
+            Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener {
+            Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
     private fun selectImage() {
         val intent=Intent(Intent.ACTION_PICK)
-        intent.type="images/"
+        intent.type="image/*"
         intent.action=Intent.ACTION_GET_CONTENT
 
          startActivityForResult(intent,100)
@@ -80,8 +113,8 @@ class AddEventActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode==100&&resultCode== RESULT_OK){
-            ImageUri= data?.data!!
-            EventLogo.setImageURI(ImageUri)
+            ImageUri=data?.data!!
+            EventLogo.setImageURI(data?.data)
         }
     }
 }

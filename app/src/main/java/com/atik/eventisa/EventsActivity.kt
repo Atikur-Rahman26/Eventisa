@@ -2,6 +2,7 @@ package com.atik.eventisa
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
@@ -9,7 +10,7 @@ import com.google.firebase.database.*
 class EventsActivity : AppCompatActivity() {
     private lateinit var dbref: DatabaseReference
     private lateinit var eventRecyclerView:RecyclerView
-    private lateinit var EventArrayList: ArrayList<EventData>
+    private lateinit var EventArrayList: ArrayList<AddEventData>
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +21,7 @@ class EventsActivity : AppCompatActivity() {
         eventRecyclerView.layoutManager=LinearLayoutManager(this)
         eventRecyclerView.setHasFixedSize(true)
 
-        EventArrayList= arrayListOf<EventData>()
+        EventArrayList= arrayListOf<AddEventData>()
         getEventItemData()
     }
 
@@ -30,17 +31,17 @@ class EventsActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     for(eventSnapShot in snapshot.children){
-                        var eventLst=eventSnapShot.getValue(EventData::class.java)
+                        var eventLst=eventSnapShot.getValue(AddEventData::class.java)
                         EventArrayList.add(eventLst!!)
-
                     }
                 }
 
-                eventRecyclerView.adapter=EventItemViewAdapter(EventArrayList)
+                eventRecyclerView.adapter=EventItemViewAdapter(EventArrayList,this@EventsActivity)
+
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Toast.makeText(this@EventsActivity,error.toString(),Toast.LENGTH_SHORT).show()
             }
         })
     }

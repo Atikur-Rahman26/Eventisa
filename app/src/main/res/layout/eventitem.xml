@@ -20,10 +20,10 @@
         android:background="@color/teal_200">
 
         <ImageView
+            android:id="@+id/Event_logo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:id="@+id/Event_logo"
-            android:scaleType="centerCrop"/>
+            android:scaleType="fitXY" />
 
         <TextView
             android:layout_width="match_parent"
