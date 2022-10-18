@@ -65,6 +65,9 @@ class AdminLoginPageActivity : AppCompatActivity() {
                 if(snapshot.exists()){
                     a=1;
                 }
+                else{
+                    a=-1
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -76,6 +79,9 @@ class AdminLoginPageActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     b=1
+                }
+                else{
+                    b=-1
                 }
             }
 
@@ -90,12 +96,17 @@ class AdminLoginPageActivity : AppCompatActivity() {
                 if(snapshot.exists()){
                     c=1
                 }
+                else{
+                    c=-1
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
         })
+
+        println("Seeing the result of a b c a::::: "+a+"   b::::::"+b+"    c:::::"+c)
 
         if(a==1&&b==1&&c==1){
             return true

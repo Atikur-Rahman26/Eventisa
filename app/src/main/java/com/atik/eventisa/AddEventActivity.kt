@@ -1,5 +1,7 @@
 package com.atik.eventisa
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
@@ -12,15 +14,22 @@ import com.atik.eventisa.databinding.ActivityAddEventBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_add_event.*
+import kotlinx.android.synthetic.main.activity_login.*
+import java.net.URI
 
 class AddEventActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddEventBinding
     private lateinit var database: DatabaseReference
+    private lateinit var ImageUri:Uri
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_event)
+
+        uploadImage.setOnClickListener{
+            selectImage()
+        }
 
         AddEventButton.setOnClickListener {
 
@@ -47,6 +56,14 @@ class AddEventActivity : AppCompatActivity() {
 
     }
 
+    private fun selectImage() {
+        val intent=Intent(Intent.ACTION_PICK)
+        intent.type="images/"
+        intent.action=Intent.ACTION_GET_CONTENT
+
+         startActivityForResult(intent,100)
+    }
+
     private fun checking(): Boolean {
 
         if(eventTitle.text.toString().isNotEmpty()&&
@@ -59,4 +76,12 @@ class AddEventActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if(requestCode==100&&resultCode== RESULT_OK){
+            ImageUri= data?.data!!
+            EventLogo.setImageURI(ImageUri)
+        }
+    }
 }
