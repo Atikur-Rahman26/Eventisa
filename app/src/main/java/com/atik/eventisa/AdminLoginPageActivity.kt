@@ -22,13 +22,14 @@ class AdminLoginPageActivity : AppCompatActivity() {
                 var adminUserName:String=AdminName.text.toString()
                 var adminEmailId:String=EmailtAdmin.text.toString()
                 var adminPassword:String=PassWordAdmin.text.toString()
-                if(AdminIsValid(adminUserName,adminEmailId,adminPassword)){
-                    val intent=Intent(this,AddEventActivity::class.java)
-                    startActivity(intent)
-                }
-                else{
-                    Toast.makeText(this,"Invalid Admin Name or email or password",Toast.LENGTH_SHORT).show()
-                }
+                /**
+                 *
+                 * Passing data to the fun AdminIsValid
+                 * And
+                 * This is for checking that the Admin is valid or not
+                 *
+                 */
+                AdminIsValid(adminUserName,adminEmailId,adminPassword)
             }
             else{
                 Toast.makeText(this,"No field can be left empty",Toast.LENGTH_SHORT).show()
@@ -46,27 +47,103 @@ class AdminLoginPageActivity : AppCompatActivity() {
         return false
     }
 
-    var a:Int=0
-    var b:Int=0
-    var c:Int=0
 
-    private fun AdminIsValid(adminUserName: String, adminEmailId: String, adminPassword: String): Boolean {
+    private fun AdminIsValid(adminUserName: String, adminEmailId: String, adminPassword: String) {
         var AName:String=adminUserName
         var AEmail:String=adminEmailId
         var APass:String=adminPassword
 
+        /**
+         * this is for AdminTable reference
+         */
+
         val reference=FirebaseDatabase.getInstance().getReference("AdminTable")
+
+        /**
+         * This is for Admin name checking query
+         */
         val checkAdminName=reference.orderByChild("admin").equalTo(AName)
+        /**
+         * This is for Admin Email checking query
+         */
+
+
         val checkAdminEmail=reference.orderByChild("email").equalTo(AEmail)
+        /**
+         * This is for Admin Password checking query
+         */
+
         val checkAdminPassword=reference.orderByChild("password").equalTo(APass)
+        /**
+         * Checking Admin Name in the firebase database
+         */
 
         checkAdminName.addListenerForSingleValueEvent(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
-                    a=1;
+
+                    /**
+                     * Checking Admin Email in the firebase database
+                     */
+                    checkAdminEmail.addListenerForSingleValueEvent(object : ValueEventListener{
+                        override fun onDataChange(snapshot: DataSnapshot) {
+                            if(snapshot.exists()){
+
+                                /**
+                                 * Checking Admin Password
+                                 */
+
+
+                                checkAdminPassword.addListenerForSingleValueEvent(object : ValueEventListener{
+
+                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                        if(snapshot.exists()){
+                                            /**
+                                             * Successfully found the data in Admin Table
+                                             */
+
+                                            /**
+                                             * clearing data in editText
+                                             */
+                                            AdminName.text.clear()
+                                            EmailtAdmin.text.clear()
+                                            PassWordAdmin.text.clear()
+
+
+                                            val intent=Intent(this@AdminLoginPageActivity,AddEventActivity::class.java)
+                                            startActivity(intent)
+                                        }
+                                        else{
+                                            return
+                                        }
+                                    }
+
+                                    override fun onCancelled(error: DatabaseError) {
+                                        TODO("Not yet implemented")
+                                    }
+                                })
+
+                                /**
+                                 * Checked the admin password
+                                 */
+                            }
+                            else{
+                                return
+                            }
+                        }
+
+                        override fun onCancelled(error: DatabaseError) {
+                            TODO("Not yet implemented")
+                        }
+                    })
+
+                    /**
+                     * Checked everything in the Admin table
+                     */
+
                 }
                 else{
-                    a=-1
+                    Toast.makeText(this@AdminLoginPageActivity,"Admin name or email or password wrong",Toast.LENGTH_SHORT).show()
                 }
             }
 
@@ -74,44 +151,6 @@ class AdminLoginPageActivity : AppCompatActivity() {
                 TODO("Not yet implemented")
             }
         })
-
-        checkAdminEmail.addListenerForSingleValueEvent(object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    b=1
-                }
-                else{
-                    b=-1
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
-
-        checkAdminPassword.addListenerForSingleValueEvent(object : ValueEventListener{
-
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    c=1
-                }
-                else{
-                    c=-1
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-        })
-
-        println("Seeing the result of a b c a::::: "+a+"   b::::::"+b+"    c:::::"+c)
-
-        if(a==1&&b==1&&c==1){
-            return true
-        }
-        return false
 
     }
 }

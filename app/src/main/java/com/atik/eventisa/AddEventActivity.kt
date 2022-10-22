@@ -1,5 +1,6 @@
 package com.atik.eventisa
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,9 +15,12 @@ import com.atik.eventisa.databinding.ActivityAddEventBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import com.google.type.Date
 import kotlinx.android.synthetic.main.activity_add_event.*
 import kotlinx.android.synthetic.main.activity_login.*
 import java.net.URI
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AddEventActivity : AppCompatActivity() {
 
@@ -32,6 +36,26 @@ class AddEventActivity : AppCompatActivity() {
 
         uploadImage.setOnClickListener{
             selectImage()
+        }
+        var calendar:Calendar
+
+        calendar=Calendar.getInstance()
+        val datep= DatePickerDialog.OnDateSetListener{ view, year, month, dayOfMonth ->
+            calendar.set(Calendar.YEAR,year)
+            calendar.set(Calendar.MONTH,month)
+            calendar.set(Calendar.DAY_OF_MONTH,dayOfMonth)
+
+            updateLabel(calendar)
+        }
+
+        pickingDate.setOnClickListener {
+            DatePickerDialog(
+                this,
+                datep,
+                calendar.get(Calendar.YEAR),
+                calendar.get(Calendar.MONTH),
+                calendar.get(Calendar.DAY_OF_MONTH)
+            ).show()
         }
 
         AddEventButton.setOnClickListener {
@@ -51,7 +75,7 @@ class AddEventActivity : AppCompatActivity() {
     private fun DowloadUrlAndUpload() {
 
 
-        val EventTitle = eventTitle.text.toString()
+        val EventTitle = AddeventTitle.text.toString()
 
 
         val reference=storage.reference.child("EventLogoImg").child(EventTitle)
@@ -68,19 +92,28 @@ class AddEventActivity : AppCompatActivity() {
 
     private fun uploadEventInfo(imageUrl: String) {
 
-        val EventTitle = eventTitle.text.toString()
-        val EventLocation = eventLocation.text.toString()
-        val EventDate = eventDate.text.toString()
-        val EventDescription = eventDescription.text.toString()
+        val EventTitle = AddeventTitle.text.toString()
+        val EventLocation = AddeventLocation.text.toString()
+        val EventDate = AddeventDate.text.toString()
+        val EventDescription = AddeventDescription.text.toString()
+
+
+        var simpleDateFormat= SimpleDateFormat("ddMMyyyyHHmmss")
+        var calendar: Calendar = Calendar.getInstance()
+        var date=simpleDateFormat.format(calendar.time)
+        val eventid=EventTitle+date.toString()
+
 
         database= FirebaseDatabase.getInstance().getReference("Events")
 
-        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription)
-        database.child(EventTitle).setValue(addEvent).addOnSuccessListener {
-            binding.eventTitle.text.clear()
-            binding.eventDate.text.clear()
-            binding.eventLocation.text.clear()
-            binding.eventDescription.text.clear()
+        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription,eventid)
+
+        database.child(eventid).setValue(addEvent).addOnSuccessListener {
+            AddeventTitle.text.clear()
+            AddeventDate.setText("")
+            AddeventLocation.text.clear()
+            AddeventDescription.text.clear()
+            EventLogo.setImageURI(null)
 
             Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
@@ -99,10 +132,10 @@ class AddEventActivity : AppCompatActivity() {
 
     private fun checking(): Boolean {
 
-        if(eventTitle.text.toString().isNotEmpty()&&
-                eventDate.text.toString().isNotEmpty()&&
-                eventDescription.text.toString().isNotEmpty()&&
-                eventLocation.text.toString().isNotEmpty()){
+        if(AddeventTitle.text.toString().isNotEmpty()&&
+            AddeventDate.text.toString().isNotEmpty()&&
+            AddeventDescription.text.toString().isNotEmpty()&&
+            AddeventLocation.text.toString().isNotEmpty()){
             return true
         }
         return false
@@ -116,5 +149,23 @@ class AddEventActivity : AppCompatActivity() {
             ImageUri=data?.data!!
             EventLogo.setImageURI(data?.data)
         }
+    }
+
+    private fun updateLabel(calendar: Calendar) {
+        val format="dd-MM-yyyy"
+        val sdf=SimpleDateFormat(format)
+        var simpleDateFormat= SimpleDateFormat("dd-MM-yyyy")
+        var calendar1: Calendar = Calendar.getInstance()
+        var date=simpleDateFormat.format(calendar1.time)
+
+        var eventDate: java.util.Date =simpleDateFormat.parse(date)
+        var thisDate: java.util.Date =sdf.parse(sdf.format(calendar.time).toString())
+        if(eventDate.before(thisDate)){
+            AddeventDate.setText(sdf.format(calendar.time))
+        }
+        else{
+            Toast.makeText(this,"Wrong Date selected!!",Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

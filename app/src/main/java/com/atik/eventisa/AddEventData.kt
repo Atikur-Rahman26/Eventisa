@@ -5,5 +5,6 @@ data class AddEventData(
     val eventTitle:String?=null,
     val eventDate:String?=null,
     val eventLocation:String?=null,
-    val eventDescription:String?=null
+    val eventDescription:String?=null,
+    val eventId:String?=null
 )
