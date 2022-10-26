@@ -1,24 +1,18 @@
 package com.atik.eventisa
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.atik.eventisa.databinding.ActivityAddEventBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
-import com.google.type.Date
 import kotlinx.android.synthetic.main.activity_add_event.*
-import kotlinx.android.synthetic.main.activity_login.*
-import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -58,7 +52,7 @@ class AddEventActivity : AppCompatActivity() {
             ).show()
         }
 
-        AddEventButton.setOnClickListener {
+        UpdateEventButton.setOnClickListener {
 
             if(checking()) {
                 if(ImageUri==null){
@@ -91,11 +85,19 @@ class AddEventActivity : AppCompatActivity() {
     }
 
     private fun uploadEventInfo(imageUrl: String) {
+        val dialog=Dialog(this)
+        dialog.setContentView(R.layout.logging_dialog)
+        if(dialog.window!=null){
+            dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        dialog.show()
 
         val EventTitle = AddeventTitle.text.toString()
         val EventLocation = AddeventLocation.text.toString()
         val EventDate = AddeventDate.text.toString()
         val EventDescription = AddeventDescription.text.toString()
+        val EventPrice=AddEventPrice.text.toString()
+        val EVENTSEAT=Seat.text.toString()
 
 
         var simpleDateFormat= SimpleDateFormat("ddMMyyyyHHmmss")
@@ -106,7 +108,7 @@ class AddEventActivity : AppCompatActivity() {
 
         database= FirebaseDatabase.getInstance().getReference("Events")
 
-        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription,eventid)
+        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription,eventid,EventPrice.toInt(),EVENTSEAT.toLong())
 
         database.child(eventid).setValue(addEvent).addOnSuccessListener {
             AddeventTitle.text.clear()
@@ -114,9 +116,13 @@ class AddEventActivity : AppCompatActivity() {
             AddeventLocation.text.clear()
             AddeventDescription.text.clear()
             EventLogo.setImageURI(null)
+            AddEventPrice.text.clear()
+            Seat.text.clear()
+            dialog.dismiss()
 
             Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
+            dialog.dismiss()
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
         }
 
@@ -135,7 +141,8 @@ class AddEventActivity : AppCompatActivity() {
         if(AddeventTitle.text.toString().isNotEmpty()&&
             AddeventDate.text.toString().isNotEmpty()&&
             AddeventDescription.text.toString().isNotEmpty()&&
-            AddeventLocation.text.toString().isNotEmpty()){
+            AddeventLocation.text.toString().isNotEmpty()&&
+                AddEventPrice.text.toString().isNotEmpty()){
             return true
         }
         return false

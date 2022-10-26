@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.startActivity
@@ -26,6 +27,7 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
     RecyclerView.Adapter<EventItemViewAdapter.EventViewHolder> () {
     lateinit var dbAuth:FirebaseAuth
     var favouriteAddedTest:Boolean=false
+
 
 
     class EventViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview){
@@ -60,6 +62,7 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
         val EventLogo: ImageView=itemview.findViewById(R.id.Event_logo)
         val favouritebutton:ImageView=itemview.findViewById(R.id.FavouriteButton)
         val LoveTxtView:TextView=itemview.findViewById(R.id.loveText)
+
     }
 
     public lateinit var Description:String
@@ -82,7 +85,6 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
         var eventid:String=currentItem.eventId.toString()
         uId=dbAuth.uid.toString()
 
-        println("Event id: ${eventid} \t\t\t uid : ${uId}")
 
         //getting which are favourite for a particular user
         holder.getFavouriteButtonStatus(uId,eventid)
@@ -105,6 +107,8 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
                 it.putExtra("eventLocation",LOCATION)
                 it.putExtra("eventDescription",Description)
                 it.putExtra("eventImage",EVENTIMAGE)
+                it.putExtra("eventId",eventid)
+                it.putExtra("uId", uId)
                 startActivity(context,it, Bundle())
             }
 

@@ -15,13 +15,21 @@
         <entry key="..\:/Eventisa/app/src/main/res/drawable/settings.xml" value="0.198" />
         <entry key="..\:/Eventisa/app/src/main/res/drawable/time_background.xml" value="0.1" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_add_event.xml" value="0.2" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_admin_hom.xml" value="0.13541666666666666" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_admin_home.xml" value="0.2" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_admin_login_page.xml" value="0.264" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_booked_event.xml" value="0.25416666666666665" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_event_admin_dashboard.xml" value="0.20104166666666667" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_event_selected.xml" value="0.12" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_events.xml" value="0.2" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_login.xml" value="0.16" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_main.xml" value="0.24728260869565216" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_see_event.xml" value="0.13645833333333332" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_see_who_booked.xml" value="0.20104166666666667" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_update_event.xml" value="0.24010416666666667" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_user_profile.xml" value="0.152" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/booked_list.xml" value="0.1" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/content_add_event.xml" value="0.2" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/country_item.xml" value="0.1" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/eventitem.xml" value="0.24127906976744187" />
@@ -31,6 +39,7 @@
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_settings.xml" value="0.1" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/logging_dialog.xml" value="0.2" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/register_dialog.xml" value="0.2" />
         <entry key="..\:/Eventisa/app/src/main/res/menu/menu.xml" value="0.1" />
         <entry key="..\:/Eventisa/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2595" />

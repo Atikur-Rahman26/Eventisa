@@ -1,9 +1,20 @@
 package com.atik.eventisa
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import com.atik.eventisa.Constants.Companion.EVENTBOOKED
+import com.atik.eventisa.Constants.Companion.EVENTDATE
+import com.atik.eventisa.Constants.Companion.EVENTDESCRPTION
+import com.atik.eventisa.Constants.Companion.EVENTID
+import com.atik.eventisa.Constants.Companion.EVENTIMAGE
+import com.atik.eventisa.Constants.Companion.EVENTLOCATION
+import com.atik.eventisa.Constants.Companion.EVENTPRICE
+import com.atik.eventisa.Constants.Companion.EVENTSEAT
+import com.atik.eventisa.Constants.Companion.EVENTTITLE
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_admin_login_page.*
@@ -13,12 +24,15 @@ import kotlinx.android.synthetic.main.activity_sign_up.*
 class AdminLoginPageActivity : AppCompatActivity() {
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_login_page)
 
+
         AdminLoginButton.setOnClickListener{
             if(checking()){
+
                 var adminUserName:String=AdminName.text.toString()
                 var adminEmailId:String=EmailtAdmin.text.toString()
                 var adminPassword:String=PassWordAdmin.text.toString()
@@ -49,6 +63,12 @@ class AdminLoginPageActivity : AppCompatActivity() {
 
 
     private fun AdminIsValid(adminUserName: String, adminEmailId: String, adminPassword: String) {
+        val dialog= Dialog(this)
+        dialog.setContentView(R.layout.logging_dialog)
+        if(dialog.window!=null){
+            dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
+        dialog.show()
         var AName:String=adminUserName
         var AEmail:String=adminEmailId
         var APass:String=adminPassword
@@ -110,8 +130,74 @@ class AdminLoginPageActivity : AppCompatActivity() {
                                             PassWordAdmin.text.clear()
 
 
-                                            val intent=Intent(this@AdminLoginPageActivity,AddEventActivity::class.java)
-                                            startActivity(intent)
+                                            /**
+                                             * This is for Admin name checking query
+                                             */
+                                            val checkAdminName=reference.orderByChild("admin").equalTo(AName)
+                                            checkAdminName.addListenerForSingleValueEvent(object : ValueEventListener{
+                                                override fun onDataChange(snapshot: DataSnapshot) {
+                                                    for(datasnapshot in snapshot.children){
+                                                        var evId=(datasnapshot.child("eventId").value.toString())
+                                                        val ref=FirebaseDatabase.getInstance().getReference("Events")
+                                                        val checkAndGetData=ref.child(evId)
+                                                        checkAndGetData.addListenerForSingleValueEvent(object : ValueEventListener{
+                                                            override fun onDataChange(snapshot: DataSnapshot) {
+                                                                for(datasnapshot in snapshot.children){
+                                                                    if(datasnapshot.key.equals("eventId")){
+                                                                        EVENTID=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventPrice")){
+                                                                        EVENTPRICE=(datasnapshot.value.toString().toInt())
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventTitle")){
+                                                                        EVENTTITLE=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventDate")){
+                                                                        EVENTDATE=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("imageUri")){
+                                                                        EVENTIMAGE=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventLocation")){
+                                                                        EVENTLOCATION=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventDescription")){
+                                                                        EVENTDESCRPTION=datasnapshot.value.toString()
+                                                                    }
+                                                                    else if(datasnapshot.key.equals("eventSeat")){
+                                                                        EVENTSEAT=datasnapshot.value.toString().toLong()
+                                                                    }
+                                                                }
+                                                                lateinit var favouriteReference: DatabaseReference
+                                                                favouriteReference=FirebaseDatabase.getInstance().getReference("addedFavourite")
+                                                                favouriteReference.addValueEventListener(object : ValueEventListener{
+                                                                    override fun onDataChange(snapshot: DataSnapshot) {
+                                                                            var favouriteCount: Long =snapshot.child(
+                                                                                EVENTID).childrenCount
+                                                                            EVENTBOOKED=favouriteCount
+                                                                        dialog.dismiss()
+                                                                        val intent=Intent(this@AdminLoginPageActivity,AdminHome::class.java)
+                                                                        startActivity(intent)
+                                                                    }
+
+                                                                    override fun onCancelled(error: DatabaseError) {
+                                                                        TODO("Not yet implemented")
+                                                                    }
+                                                                })
+                                                            }
+
+                                                            override fun onCancelled(error: DatabaseError) {
+                                                                TODO("Not yet implemented")
+                                                            }
+                                                        })
+
+                                                    }
+                                                }
+
+                                                override fun onCancelled(error: DatabaseError) {
+                                                    TODO("Not yet implemented")
+                                                }
+                                            })
                                         }
                                         else{
                                             return
@@ -143,6 +229,7 @@ class AdminLoginPageActivity : AppCompatActivity() {
 
                 }
                 else{
+                    dialog.dismiss()
                     Toast.makeText(this@AdminLoginPageActivity,"Admin name or email or password wrong",Toast.LENGTH_SHORT).show()
                 }
             }

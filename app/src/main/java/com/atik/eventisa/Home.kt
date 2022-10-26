@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.atik.eventisa.Constants.Companion.username
 import com.google.firebase.database.*
 import io.grpc.Context
+import kotlinx.android.synthetic.main.activity_add_event.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -88,10 +92,32 @@ class Home : Fragment() {
                 if(snapshot.exists()){
                     for(eventSnapShot in snapshot.children){
                         var eventLst=eventSnapShot.getValue(AddEventData::class.java)
-                        EventArrayList.add(eventLst!!)
+
+                        val sdf=SimpleDateFormat("dd-MM-yyyy")
+                        var simpleDateFormat= SimpleDateFormat("dd-MM-yyyy")
+                        var calendar1: Calendar = Calendar.getInstance()
+                        var date=eventLst?.eventDate.toString()
+
+                        var eventDate:java.util.Date =simpleDateFormat.parse(date)
+                        var thisDate:java.util.Date =sdf.parse(sdf.format(calendar1.time).toString())
+                        if(eventDate.before(thisDate)){
+                            EventArrayList.add(eventLst!!)
+                        }
                     }
                 }
-                eventRecyclerView.adapter=EventItemViewAdapter(EventArrayList, requireContext())
+                if(EventArrayList.isEmpty()){
+
+                }
+                else {
+                    try{
+                        println(EventArrayList)
+                        eventRecyclerView.adapter =
+                            EventItemViewAdapter(EventArrayList, requireContext())
+                    }
+                    catch (e:Exception){
+                        println(e.message)
+                    }
+                }
 
             }
 

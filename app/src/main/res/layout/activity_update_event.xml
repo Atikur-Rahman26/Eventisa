@@ -12,7 +12,7 @@
         android:layout_height="match_parent">
 
         <EditText
-            android:id="@+id/AddeventDescription"
+            android:id="@+id/UpdateEventDescription"
             android:layout_width="252dp"
             android:layout_height="48dp"
             android:ems="10"
@@ -23,24 +23,25 @@
             app:layout_constraintHorizontal_bias="0.991"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.379" />
+            app:layout_constraintVertical_bias="0.546" />
 
-        <EditText
-            android:id="@+id/AddeventLocation"
+        <TextView
+            android:id="@+id/UpdateEventLocation"
             android:layout_width="271dp"
             android:layout_height="48dp"
             android:ems="10"
-            android:hint="Location"
-            android:inputType="textPersonName"
+            android:text="Location"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.99"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.265" />
+            app:layout_constraintVertical_bias="0.364" />
 
         <TextView
-            android:id="@+id/AddeventDate"
+            android:id="@+id/UpdateEventDate"
             android:layout_width="184dp"
             android:layout_height="48dp"
             android:ems="10"
@@ -51,20 +52,7 @@
             app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162" />
-
-        <TextView
-            android:layout_width="53dp"
-            android:layout_height="45dp"
-            android:text="Title:"
-            android:textSize="20sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.045" />
+            app:layout_constraintVertical_bias="0.216" />
 
         <TextView
             android:id="@+id/textView3"
@@ -78,7 +66,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.365" />
+            app:layout_constraintVertical_bias="0.542" />
 
         <TextView
             android:layout_width="89dp"
@@ -91,10 +79,11 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.274" />
+            app:layout_constraintVertical_bias="0.377" />
+
 
         <Button
-            android:id="@+id/pickingDate"
+            android:id="@+id/UpdatePickingDate"
             android:layout_width="115dp"
             android:layout_height="48dp"
             android:text="pick date"
@@ -102,85 +91,67 @@
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.937"
+            app:layout_constraintHorizontal_bias="0.883"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162" />
+            app:layout_constraintVertical_bias="0.214" />
 
-        <ImageView
-            android:id="@+id/EventLogo"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="128dp"
-            app:layout_constraintEnd_toEndOf="@+id/UpdateEventButton"
-            app:layout_constraintHorizontal_bias="0.83"
-            app:layout_constraintStart_toStartOf="@+id/UpdateEventButton"
-            app:layout_constraintTop_toBottomOf="@+id/AddeventDescription" />
 
         <Button
-            android:id="@+id/UpdateEventButton"
+            android:id="@+id/UpdateButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/black"
-            android:text="ADD"
+            android:text="Update"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.834"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.998" />
+            app:layout_constraintEnd_toEndOf="@+id/Seat"
+            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintStart_toStartOf="@+id/Seat"
+            app:layout_constraintTop_toBottomOf="@+id/Seat"
+            app:layout_constraintVertical_bias="1.0" />
 
-        <EditText
-            android:id="@+id/AddeventTitle"
-            android:layout_width="309dp"
-            android:layout_height="52dp"
+        <TextView
+            android:id="@+id/UpdateeventTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Title"
-            android:inputType="textPersonName"
+            android:text="text"
+            android:textSize="28sp"
+            android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.746"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.046" />
-
-        <Button
-            android:id="@+id/uploadImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="select Image"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.232"
-            app:layout_constraintStart_toStartOf="@+id/EventLogo"
-            app:layout_constraintTop_toBottomOf="@+id/EventLogo" />
+            app:layout_constraintVertical_bias="0.036" />
 
         <EditText
-            android:id="@+id/AddEventPrice"
+            android:id="@+id/UpdateEventPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="68dp"
+            android:layout_marginTop="420dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:text="Price"
-            app:layout_constraintBottom_toTopOf="@+id/EventLogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.219"
-            app:layout_constraintStart_toEndOf="@+id/textView3" />
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="89dp"
             android:layout_height="41dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="96dp"
             android:text="Price"
             android:textSize="20sp"
             android:textStyle="bold|italic"
-            app:layout_constraintEnd_toStartOf="@+id/AddEventPrice"
-            app:layout_constraintHorizontal_bias="0.39"
+            app:layout_constraintEnd_toStartOf="@+id/UpdateEventPrice"
+            app:layout_constraintHorizontal_bias="0.343"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -188,28 +159,55 @@
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="500dp"
             android:text="Total Seat: "
             android:textSize="20sp"
             android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="@+id/textView4"
-            app:layout_constraintHorizontal_bias="0.483"
-            app:layout_constraintStart_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
+            app:layout_constraintEnd_toStartOf="@+id/Seat"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
             android:id="@+id/Seat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="488dp"
             android:ems="10"
+            android:hint="Seat"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:hint="Seat"
-            app:layout_constraintEnd_toEndOf="@+id/AddEventPrice"
+            app:layout_constraintEnd_toEndOf="@+id/UpdateEventPrice"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/AddEventPrice"
-            app:layout_constraintTop_toBottomOf="@+id/AddEventPrice" />
+            app:layout_constraintStart_toStartOf="@+id/UpdateEventPrice"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/Reason"
+            android:layout_width="194dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="348dp"
+            android:inputType="textPersonName"
+            android:text="text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.679"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="368dp"
+            android:text="Reason"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/Reason"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

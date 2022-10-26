@@ -11,6 +11,7 @@ import kotlin.math.log
 
 class UserProfileActivity : AppCompatActivity() {
     private lateinit var db:FirebaseFirestore
+    var i:Int=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_profile)
@@ -38,6 +39,10 @@ class UserProfileActivity : AppCompatActivity() {
         }
         else{
             setEmail(isLogin)
+        }
+        if(i==0){
+            i=1
+            replaceFragment(Home())
         }
 
         bottomNavigationView.setOnItemSelectedListener{

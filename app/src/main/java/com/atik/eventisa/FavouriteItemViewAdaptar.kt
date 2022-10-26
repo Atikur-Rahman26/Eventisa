@@ -7,8 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commit
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
@@ -31,11 +35,11 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
 
     }
 
-    public lateinit var Description: String
-    public lateinit var EVENTTITLE: String
-    public lateinit var LOCATION: String
-    public lateinit var EVENTDATE: String
-    public lateinit var EVENTIMAGE: String
+     lateinit var Description: String
+     lateinit var EVENTTITLE: String
+     lateinit var LOCATION: String
+     lateinit var EVENTDATE: String
+     lateinit var EVENTIMAGE: String
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavouriteEventViewHolder {
         val itemView: View = LayoutInflater.from(parent.context).
@@ -54,6 +58,7 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
 
         //getting which are favourite for a particular user
 
+
         holder.Date.text = currentItem.eventDate
         holder.Title.text = currentItem.eventTitle
         holder.Location.text = currentItem.eventLocation
@@ -66,12 +71,13 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
             EVENTIMAGE = currentItem.imageUri.toString()
 
 
-            val intent = Intent(context, EventSelectedActivity::class.java).also {
+            val intent = Intent(context, SeeEvent::class.java).also {
                 it.putExtra("eventTitle", EVENTTITLE)
                 it.putExtra("eventDate", EVENTDATE)
                 it.putExtra("eventLocation", LOCATION)
                 it.putExtra("eventDescription", Description)
                 it.putExtra("eventImage", EVENTIMAGE)
+                it.putExtra("eventId",currentItem.eventId)
                 ContextCompat.startActivity(context, it, Bundle())
             }
 
@@ -82,16 +88,37 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.child(eventid).hasChild(Constants.uId)) {
                         dbref.child(eventid).removeValue()
+                        refreshFavouriteFragment(context)
                     }
+
                 }
                 override fun onCancelled(error: DatabaseError) {
                     TODO("Not yet implemented")
                 }
             })
+
         }
+    }
+
+    private fun refreshFavouriteFragment(context: Context) {
+        context?.let {
+            val fragmentManager=(context as? AppCompatActivity)?.supportFragmentManager
+            fragmentManager?.let {
+                val currentFragment=fragmentManager.findFragmentById(R.id.frame_layout)
+                currentFragment?.let {
+                    val fragmentTransaction=fragmentManager.beginTransaction()
+                    fragmentTransaction.detach(it)
+                    fragmentTransaction.attach(it)
+                    fragmentTransaction.commit()
+                }
+            }
+        }
+
     }
 
     override fun getItemCount(): Int {
         return eventList.size
     }
+
+
 }

@@ -18,6 +18,26 @@
         android:theme="@style/Theme.Eventisa"
         tools:targetApi="31">
         <activity
+            android:name=".SeeEvent"
+            android:exported="false" />
+        <activity
+            android:name=".Booked_Event"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateEventActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EventAdminDashboard"
+            android:exported="false" />
+        <activity
+            android:name=".AdminHome"
+            android:exported="false"
+            android:label="@string/title_activity_admin_home"
+            android:theme="@style/Theme.Eventisa.NoActionBar" />
+        <activity
+            android:name=".SeeWhoBooked"
+            android:exported="false" />
+        <activity
             android:name=".UserProfileActivity"
             android:exported="false" />
         <activity

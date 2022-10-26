@@ -1,6 +1,8 @@
 package com.atik.eventisa
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -76,7 +78,7 @@ class Favourite : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         favouriteRecyclerView=view.findViewById(R.id.favouriteRecyclerview)
         favouriteRecyclerView.layoutManager= LinearLayoutManager(context)
-        favouriteRecyclerView.setHasFixedSize(true)
+
 
         EventFavouriteList= arrayListOf<AddEventData>()
         getEventItemData()
@@ -86,24 +88,16 @@ class Favourite : Fragment() {
         var str= arrayListOf<String>()
         var dbAuth:FirebaseAuth= FirebaseAuth.getInstance()
         uId =dbAuth.uid.toString()
-        dbref= FirebaseDatabase.getInstance().getReference("addedFavourite")
+        dbref= FirebaseDatabase.getInstance().getReference("BookedList")
         Userdbref=FirebaseDatabase.getInstance().getReference("Events")
             dbref.addValueEventListener(object : ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    for (datasnapshot in snapshot.children) {
-
-                        var str1: String = datasnapshot.value.toString()
-                        var str2: String = ""
-                        for (j in str1.indices) {
-                            if (str1[j] == '=') {
-                                break;
-                            } else if (str1[j] != '{') {
-                                str2 += str1[j]
+                    for(datasnapshot in snapshot.children) {
+                        for(dat in datasnapshot.children){
+                            str.add(dat.key.toString())
+                            if(dat.key.equals(uId)){
+                                str.add(datasnapshot.key.toString())
                             }
-                        }
-
-                        if (str2.equals(uId)) {
-                            str.add(datasnapshot.key.toString())
                         }
                     }
 
@@ -129,13 +123,17 @@ class Favourite : Fragment() {
                         }
                     }
                 }
-                if(EventFavouriteList.isEmpty()){
-                    showTextEmplty.visibility=View.VISIBLE
-                }
-                if(requireContext()!=null) {
-                    favouriteRecyclerView.adapter =
-                        FavouriteItemViewAdaptar(EventFavouriteList, requireContext())
-                }
+//                if(EventFavouriteList.isEmpty()){
+//                    showTextEmplty.visibility=View.VISIBLE
+//                }
+
+                    try {
+                        favouriteRecyclerView.adapter =
+                            FavouriteItemViewAdaptar(EventFavouriteList, requireContext())
+                    }catch (e:Exception){
+                        println(e.message)
+                        Log.i(TAG, "onDataChange: ${e.message} ")
+                    }
 
             }
 

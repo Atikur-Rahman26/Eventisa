@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EventSelectedActivity"
+    tools:context=".SeeEvent"
     android:background="@color/white">
 
 
@@ -54,20 +54,20 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/event_desc"/>
 
-            <!--                Give string here inside the text view to show description-->
-
+            <!--Give string here inside the text view to show description-->
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/button_bg"
                 android:paddingTop="5dp"
-                android:text="Get Ticket"
-                android:id="@+id/BookingEvent"
+                android:text="Request Refund"
+                android:id="@+id/RequestingRefund"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
