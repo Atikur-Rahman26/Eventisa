@@ -19,6 +19,14 @@ class Login : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
 
+        val currentUserLoggedIn=auth.currentUser
+        if(currentUserLoggedIn!=null){
+            var UserName= auth?.currentUser?.email.toString()
+            val intent=Intent(this,UserProfileActivity::class.java)
+            intent.putExtra("email",UserName)
+            startActivity(intent)
+            finish()
+        }
 
         //For sign in Button
         LoginButton.setOnClickListener{

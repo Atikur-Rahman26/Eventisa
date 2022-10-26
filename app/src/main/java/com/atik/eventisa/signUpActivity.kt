@@ -82,18 +82,18 @@ class signUpActivity : AppCompatActivity() {
                     dialog.show()
 
 
-                    val user=firestoreRef.collection("USERS")
+                    val Storeuser=firestoreRef.collection("USERS")
                     /*
                     *Query for getting the result if the email is existed or not
                      */
-                    val queryForeEmail=user.whereEqualTo("Email",emailTEXT).get()
+                    val queryForeEmail=Storeuser.whereEqualTo("Email",emailTEXT).get()
                         .addOnSuccessListener {
                             it->
                             if(it.isEmpty){
                                 /*
                                 *Query for getting the result if the username is existed or not
                                  */
-                                val queryForUserName=user.whereEqualTo("userName",username).get()
+                                val queryForUserName=Storeuser.whereEqualTo("userName",username).get()
                                     .addOnSuccessListener {
                                         it->
                                         if(it.isEmpty){
@@ -106,41 +106,46 @@ class signUpActivity : AppCompatActivity() {
                                             auth.createUserWithEmailAndPassword(emailTEXT,passWORD).addOnCompleteListener(this){task->
                                                 if(task.isSuccessful){
                                                     val user=auth.currentUser
+                                                    uId=auth.currentUser?.uid.toString()
+
+
+                                                    val USERS=hashMapOf(
+                                                        "uid" to uId,
+                                                        "userName" to username,
+                                                        "phoneNumber" to phoneNumbeR,
+                                                        "country" to country,
+                                                        "Email" to emailTEXT,
+                                                        "lastName" to LNAME,
+                                                        "firstName" to FNAME
+                                                    )
+
+                                                    databse=FirebaseDatabase.getInstance().getReference("UsersTable")
+                                                    username=username.toLowerCase()
+                                                    val User=UserInfo(FNAME,LNAME,emailTEXT,country,phoneNumbeR,username, uId)
+                                                    databse.child(username).setValue(User).addOnSuccessListener {
+//                                                        user.document(username).set(USERS)
+                                                        Storeuser.document(username).set(USERS)
+                                                        fName.text.clear()
+                                                        lName.text.clear()
+                                                        UserNameTextField.text.clear()
+                                                        emailSignUp.text.clear()
+                                                        passwordTextSignUp.text.clear()
+                                                        phoneNumber.text.clear()
+                                                        dialog.dismiss()
+                                                        val intent=Intent(this,Login::class.java)
+                                                        startActivity(intent)
+                                                        finish()
+                                                        Toast.makeText(this,"Successfully registered",Toast.LENGTH_SHORT).show()
+                                                    }
                                                 }
                                             }
 
-                                            uId=auth.currentUser?.uid.toString()
 
                                             /**
                                             *
                                             * Store the user data in firebase database
                                             * starting code  for  storing data
                                             *  */
-
-                                            val USERS=hashMapOf(
-                                                "uid" to uId,
-                                                "userName" to username,
-                                                "phoneNumber" to phoneNumbeR,
-                                                "country" to country,
-                                                "Email" to emailTEXT,
-                                                "lastName" to LNAME,
-                                                "firstName" to FNAME
-                                            )
-
-                                            databse=FirebaseDatabase.getInstance().getReference("UsersTable")
-                                            username=username.toLowerCase()
-                                            val User=UserInfo(FNAME,LNAME,emailTEXT,country,phoneNumbeR,username, uId)
-                                            databse.child(username).setValue(User).addOnSuccessListener {
-                                                user.document(username).set(USERS)
-                                                fName.text.clear()
-                                                lName.text.clear()
-                                                UserNameTextField.text.clear()
-                                                emailSignUp.text.clear()
-                                                passwordTextSignUp.text.clear()
-                                                phoneNumber.text.clear()
-                                                dialog.dismiss()
-                                                Toast.makeText(this,"Successfully registered",Toast.LENGTH_SHORT).show()
-                                            }
                                         }
                                         else{
                                             dialog.dismiss()

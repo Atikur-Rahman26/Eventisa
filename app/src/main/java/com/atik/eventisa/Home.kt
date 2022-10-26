@@ -93,20 +93,22 @@ class Home : Fragment() {
                     for(eventSnapShot in snapshot.children){
                         var eventLst=eventSnapShot.getValue(AddEventData::class.java)
 
-                        val sdf=SimpleDateFormat("dd-MM-yyyy")
-                        var simpleDateFormat= SimpleDateFormat("dd-MM-yyyy")
-                        var calendar1: Calendar = Calendar.getInstance()
-                        var date=eventLst?.eventDate.toString()
-
-                        var eventDate:java.util.Date =simpleDateFormat.parse(date)
-                        var thisDate:java.util.Date =sdf.parse(sdf.format(calendar1.time).toString())
-                        if(eventDate.before(thisDate)){
+                        println("eventList: ${eventLst}")
+//                        val sdf=SimpleDateFormat("dd-MM-yyyy")
+//                        var simpleDateFormat= SimpleDateFormat("dd-MM-yyyy")
+//                        var calendar1: Calendar = Calendar.getInstance()
+//                        var date=eventLst?.eventDate.toString()
+//
+//                        var eventDate:java.util.Date =simpleDateFormat.parse(date)
+//                        var thisDate:java.util.Date =sdf.parse(sdf.format(calendar1.time).toString())
+//                        if(eventDate.before(thisDate)){
                             EventArrayList.add(eventLst!!)
-                        }
+                            println(EventArrayList)
+//                        }
                     }
                 }
                 if(EventArrayList.isEmpty()){
-
+                    println(EventArrayList)
                 }
                 else {
                     try{

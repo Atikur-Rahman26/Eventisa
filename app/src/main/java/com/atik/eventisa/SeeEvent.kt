@@ -3,6 +3,7 @@ package com.atik.eventisa
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.atik.eventisa.Constants.Companion.uId
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_event_selected.*
@@ -57,9 +58,24 @@ class SeeEvent : AppCompatActivity() {
                         if(RefundFlag==false){
                             var dbref: DatabaseReference =FirebaseDatabase.getInstance().getReference("RefundList")
                             dbref.child(eventId).child(Constants.uId).setValue(true)
-                            val intent= Intent(this@SeeEvent,UserProfileActivity::class.java)
-                            startActivity(intent)
-                            finish()
+
+
+                            var ref:DatabaseReference=FirebaseDatabase.getInstance().getReference("BookedList")
+                            ref.addListenerForSingleValueEvent(object : ValueEventListener{
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    if(snapshot.child(eventId).hasChild(uId)){
+                                        ref.child(eventId).removeValue()
+                                        val intent= Intent(this@SeeEvent,UserProfileActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                    }
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    TODO("Not yet implemented")
+                                }
+                            })
+
                         }
                     }
                 }

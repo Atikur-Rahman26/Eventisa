@@ -31,7 +31,6 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
         val Location: TextView = itemview.findViewById(R.id.Event_Location)
         val Title: TextView = itemview.findViewById(R.id.event_title1)
         val EventLogo: ImageView = itemview.findViewById(R.id.Event_logo)
-        val removeFromFavouriteList: ImageView = itemview.findViewById(R.id.threeDot)
 
     }
 
@@ -80,22 +79,6 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
                 it.putExtra("eventId",currentItem.eventId)
                 ContextCompat.startActivity(context, it, Bundle())
             }
-
-        }
-        holder.removeFromFavouriteList.setOnClickListener {
-            var dbref: DatabaseReference = FirebaseDatabase.getInstance().getReference("addedFavourite")
-            dbref.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    if (snapshot.child(eventid).hasChild(Constants.uId)) {
-                        dbref.child(eventid).removeValue()
-                        refreshFavouriteFragment(context)
-                    }
-
-                }
-                override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
-                }
-            })
 
         }
     }

@@ -1,10 +1,18 @@
 package com.atik.eventisa
 
+import android.content.ContentValues
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.atik.eventisa.Constants.Companion.uId
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import java.sql.Ref
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +28,11 @@ class Settings_ : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+    private lateinit var dbref: DatabaseReference
+    private lateinit var Userdbref: DatabaseReference
+    private lateinit var RefundRecyclerView: RecyclerView
+    private lateinit var RefundList: ArrayList<AddEventData>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,5 +68,69 @@ class Settings_ : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        RefundRecyclerView=view.findViewById(R.id.RefundRecyclerviewXML)
+        RefundRecyclerView.layoutManager= LinearLayoutManager(context)
+
+
+        RefundList= arrayListOf<AddEventData>()
+        getEventItemData()
+    }
+
+    private fun getEventItemData() {
+        var str= arrayListOf<String>()
+        var dbAuth: FirebaseAuth = FirebaseAuth.getInstance()
+        uId =dbAuth.uid.toString()
+        dbref= FirebaseDatabase.getInstance().getReference("RefundList")
+        Userdbref= FirebaseDatabase.getInstance().getReference("Events")
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for(datasnapshot in snapshot.children) {
+                    for(dat in datasnapshot.children){
+                        str.add(dat.key.toString())
+                        if(dat.key.equals(uId)){
+                            str.add(datasnapshot.key.toString())
+                        }
+                    }
+                }
+                passingDatatoRecyclerView(Userdbref,str)
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+    }
+
+    private fun passingDatatoRecyclerView(eventdbref: DatabaseReference, eventIdFromFavourite: ArrayList<String>) {
+        eventdbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                RefundList= arrayListOf<AddEventData>()
+                for (datasnapShot in snapshot.children) {
+                    for (i in eventIdFromFavourite.indices) {
+                        if (datasnapShot.key.equals(eventIdFromFavourite[i])) {
+                            var eventlst=datasnapShot.getValue(AddEventData::class.java)
+                            RefundList.add(eventlst!!)
+                        }
+                    }
+                }
+
+                try {
+                    RefundRecyclerView.adapter =
+                        RefundListViewAdapter(RefundList, requireContext())
+                }catch (e:Exception){
+                    println(e.message)
+                    Log.i(ContentValues.TAG, "onDataChange: ${e.message} ")
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
     }
 }

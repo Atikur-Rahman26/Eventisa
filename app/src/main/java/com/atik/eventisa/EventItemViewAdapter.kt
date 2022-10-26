@@ -65,11 +65,11 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
 
     }
 
-    public lateinit var Description:String
-    public lateinit var EVENTTITLE:String
-    public lateinit var LOCATION:String
-    public lateinit var EVENTDATE:String
-     public lateinit var EVENTIMAGE:String
+    private lateinit var Description:String
+    private lateinit var EVENTTITLE:String
+    private lateinit var LOCATION:String
+    private lateinit var EVENTDATE:String
+     private lateinit var EVENTIMAGE:String
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EventViewHolder {
         val itemView: View = LayoutInflater.from(parent.context).

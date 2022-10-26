@@ -20,7 +20,7 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/Event_logo"
+            android:id="@+id/Refund_Event_logo"
             android:layout_width="381dp"
             android:layout_height="212dp"
             android:scaleType="fitXY"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/event_title1"
+            android:id="@+id/Refund_event_title"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -43,20 +43,20 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/Event_Date"
+            android:id="@+id/Refund_Event_Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="168dp"
             android:text="This is will show date"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/Event_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/Refund_Event_logo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/Event_Location"
+            android:id="@+id/Refund_Event_Location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
@@ -65,7 +65,7 @@
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/Event_Date"
+            app:layout_constraintTop_toTopOf="@+id/Refund_Event_Date"
             app:layout_constraintVertical_bias="0.9" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
