@@ -134,7 +134,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/AdminLoginButton"
             android:layout_width="290dp"
-            android:layout_height="42dp"
+            android:layout_height="48dp"
             android:layout_marginTop="60dp"
             android:background="@drawable/count_background"
             android:backgroundTint="@color/registerBtn"
