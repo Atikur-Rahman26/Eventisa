@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EventsApp</string>
+    <string name="app_name">Eventisa</string>
     <string name="dashboard_title">Dashboard</string>
     <string name="dashboard_heading">Find Amazing events happening around you.</string>
     <string name="dashboard_sub_title">480 events around you</string>
