@@ -8,11 +8,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.atik.eventisa.Constants.Companion.HostEmail
 import com.atik.eventisa.databinding.ActivityAddEventBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_event.*
+import kotlinx.android.synthetic.main.activity_refund_status.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -28,6 +31,7 @@ class AddEventActivity : AppCompatActivity() {
         setContentView(R.layout.activity_add_event)
         storage=FirebaseStorage.getInstance()
 
+        HostEmail=FirebaseAuth.getInstance().currentUser!!.email.toString()
         uploadImage.setOnClickListener{
             selectImage()
         }
@@ -100,15 +104,17 @@ class AddEventActivity : AppCompatActivity() {
         val EVENTSEAT=Seat.text.toString()
 
 
-        var simpleDateFormat= SimpleDateFormat("ddMMyyyyHHmmss")
+        var simpleDateFormat= SimpleDateFormat("dd-MM-yyyy-HH-mm-ss")
         var calendar: Calendar = Calendar.getInstance()
         var date=simpleDateFormat.format(calendar.time)
         val eventid=EventTitle+date.toString()
 
 
-        database= FirebaseDatabase.getInstance().getReference("Events")
+        database= FirebaseDatabase.getInstance().getReference("PendingAddingEvents")
 
-        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription,eventid,EventPrice.toInt(),EVENTSEAT.toLong())
+        val addEvent=AddEventData(imageUrl.toString(),EventTitle,EventDate,EventLocation,EventDescription,
+            eventid,EventPrice.toInt(),EVENTSEAT.toLong(),
+            HostEmail)
 
         database.child(eventid).setValue(addEvent).addOnSuccessListener {
             AddeventTitle.text.clear()
@@ -120,7 +126,10 @@ class AddEventActivity : AppCompatActivity() {
             Seat.text.clear()
             dialog.dismiss()
 
-            Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
+            val intent=Intent(this@AddEventActivity,HostHomeActivity::class.java)
+            startActivity(intent)
+            finish()
+            Toast.makeText(this, "Requested to add the event data", Toast.LENGTH_SHORT).show()
         }.addOnFailureListener {
             dialog.dismiss()
             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()

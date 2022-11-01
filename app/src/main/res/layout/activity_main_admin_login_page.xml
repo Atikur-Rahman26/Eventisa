@@ -37,7 +37,7 @@
                 android:layout_marginStart="10dp"/>
 
             <EditText
-                android:id="@+id/AdminName"
+                android:id="@+id/MainAdminName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -75,7 +75,7 @@
                 android:layout_marginStart="10dp"/>
 
             <EditText
-                android:id="@+id/EmailtAdmin"
+                android:id="@+id/MainEmailtAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -96,25 +96,26 @@
             android:id="@+id/passwordBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="40dp"
             android:layout_weight="5"
 
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@+id/emailBoxText"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/emailBoxText"
             app:layout_constraintTop_toBottomOf="@+id/emailBoxText">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Password"
                 android:textColor="@color/editTextSubHeading"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"/>
+                android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/PassWordAdmin"
+                android:id="@+id/MainPassWordAdmin"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -132,7 +133,7 @@
         </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/AdminLoginButton"
+            android:id="@+id/MainAdminLoginButton"
             android:layout_width="290dp"
             android:layout_height="48dp"
             android:layout_marginTop="60dp"
@@ -157,17 +158,6 @@
             app:layout_constraintHorizontal_bias="0.496"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/HostSignUpButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="Sign up"
-            app:layout_constraintEnd_toEndOf="@+id/AdminLoginButton"
-            app:layout_constraintHorizontal_bias="0.454"
-            app:layout_constraintStart_toStartOf="@+id/AdminLoginButton"
-            app:layout_constraintTop_toBottomOf="@+id/AdminLoginButton" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

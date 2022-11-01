@@ -12,7 +12,7 @@ class AppHome : AppCompatActivity() {
         setContentView(R.layout.activity_app_home)
 
         MainAdmin.setOnClickListener{
-            val intent=Intent(this,AddEventActivity::class.java)
+            val intent=Intent(this,MainAdminLoginPageActivity::class.java)
             startActivity(intent)
         }
 

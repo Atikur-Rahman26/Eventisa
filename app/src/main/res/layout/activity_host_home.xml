@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HostHomeActivity">
+
+    <Button
+        android:id="@+id/UpdateEventHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="72dp"
+        android:text="Update Event"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/SeeMyEventHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="See Event"
+        app:layout_constraintEnd_toEndOf="@+id/UpdateEventHost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/UpdateEventHost"
+        app:layout_constraintTop_toBottomOf="@+id/UpdateEventHost" />
+
+    <Button
+        android:id="@+id/AddEventHost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Add Event"
+        app:layout_constraintEnd_toEndOf="@+id/SeeMyEventHost"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/SeeMyEventHost"
+        app:layout_constraintTop_toBottomOf="@+id/SeeMyEventHost" />
+</androidx.constraintlayout.widget.ConstraintLayout>

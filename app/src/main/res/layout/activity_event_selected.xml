@@ -31,28 +31,35 @@
                 android:src="@color/blue"/>
             <!-- Pic from firebase -->
 
-            <ImageView
-                android:id="@+id/mapImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@color/black"
-                android:layout_marginTop="5dp"/>
             <TextView
                 android:id="@+id/event_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Event_Date"/>
+                android:id="@+id/Event_Date"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Event_Location"/>
+                android:id="@+id/Event_Location"
+                android:textStyle="italic"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/event_desc"/>
+                android:id="@+id/event_desc"
+                android:textSize="20sp"
+                android:textColor="@color/black"/>
 
             <!--                Give string here inside the text view to show description-->
 

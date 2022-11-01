@@ -7,102 +7,47 @@
     android:background="@color/white"
     android:layout_margin="10dp"
     android:padding="10dp"
-    >
+    android:orientation="vertical">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         >
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:text="Title"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.048"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logoX"
-            app:layout_constraintVertical_bias="0.023" />
-
-        <EditText
-            android:id="@+id/AddeventTitle"
+        <ImageView
+            android:id="@+id/logoX"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:ems="10"
-            android:hint="Title"
-            android:inputType="textPersonName"
-            android:paddingStart="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="100dp"
+            android:src="@drawable/loginlogo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.092"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9"
-            app:layout_constraintVertical_bias="0.007" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="105dp"
-            android:layout_height="35dp"
-            android:text="Description"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.187" />
-
+            app:layout_constraintTop_toTopOf="parent" />
         <EditText
             android:id="@+id/AddeventDescription"
-            android:layout_width="wrap_content"
-            android:layout_height="42dp"
+            android:layout_width="252dp"
+            android:layout_height="48dp"
             android:ems="10"
             android:hint="Description"
             android:inputType="textPersonName"
-            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            app:layout_constraintVertical_bias="0.009" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="105dp"
-            android:layout_height="30dp"
-            android:text="Location"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintHorizontal_bias="0.991"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.268" />
+            app:layout_constraintVertical_bias="0.37" />
 
         <EditText
             android:id="@+id/AddeventLocation"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="271dp"
+            android:layout_height="48dp"
             android:ems="10"
             android:hint="Location"
             android:inputType="textPersonName"
-            android:paddingStart="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.098"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13"
-            app:layout_constraintVertical_bias="0.01" />
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toEndOf="@+id/textView13"
+            app:layout_constraintTop_toBottomOf="@+id/pickingDate"
+            app:layout_constraintVertical_bias="0.029" />
 
         <TextView
             android:id="@+id/AddeventDate"
@@ -113,136 +58,183 @@
             android:textSize="16sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.408"
+            app:layout_constraintEnd_toStartOf="@+id/pickingDate"
+            app:layout_constraintHorizontal_bias="0.818"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.351" />
+            app:layout_constraintVertical_bias="0.198" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="78dp"
+            android:layout_height="44dp"
+            android:text="Title:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.043"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logoX"
+            app:layout_constraintVertical_bias="0.008" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="121dp"
+            android:layout_height="46dp"
+            android:text="Description:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.365" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="89dp"
+            android:layout_height="41dp"
+            android:text="Location:"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.085"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AddeventDate"
+            app:layout_constraintVertical_bias="0.03" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pickingDate"
-            android:layout_width="29dp"
-            android:layout_height="29dp"
-            android:background="@drawable/ic_calendar"
-
+            android:layout_width="99dp"
+            android:layout_height="30dp"
+            android:background="@drawable/button_bg"
+            android:text="pick date"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.061"
+            app:layout_constraintHorizontal_bias="0.896"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.354" />
+            app:layout_constraintVertical_bias="0.198" />
+
+        <ImageView
+            android:id="@+id/EventLogo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="188dp"
+            android:autofillHints=""
+            app:layout_constraintEnd_toEndOf="@+id/UpdateEventButton"
+            app:layout_constraintHorizontal_bias="0.475"
+            app:layout_constraintStart_toStartOf="@+id/UpdateEventButton"
+            app:layout_constraintTop_toBottomOf="@+id/AddeventDescription" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/UpdateEventButton"
+            android:layout_width="83dp"
+            android:layout_height="41dp"
+            android:background="@drawable/button_bg"
+            android:text="ADD"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.469"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uploadImage"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/AddeventTitle"
+            android:layout_width="295dp"
+            android:layout_height="42dp"
+            android:background="@drawable/border_button"
+            android:ems="10"
+            android:hint="Title"
+            android:inputType="textPersonName"
+            android:paddingStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintStart_toEndOf="@+id/textView9"
+            app:layout_constraintTop_toBottomOf="@+id/logoX"
+            app:layout_constraintVertical_bias="0.008" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/uploadImage"
+            android:layout_width="146dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_bg"
+            android:text="select Image"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.632"
+            app:layout_constraintStart_toStartOf="@+id/EventLogo"
+            app:layout_constraintTop_toBottomOf="@+id/EventLogo" />
+
+        <EditText
+            android:id="@+id/AddEventPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="84dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:text="Price"
+            app:layout_constraintBottom_toTopOf="@+id/EventLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.393"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="70dp"
-            android:layout_height="30dp"
+            android:layout_width="89dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="68dp"
             android:text="Price"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.053"
+            app:layout_constraintEnd_toStartOf="@+id/AddEventPrice"
+            app:layout_constraintHorizontal_bias="0.071"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteY="512dp" />
-
-        <EditText
-            android:id="@+id/AddEventPrice"
-            android:layout_width="75dp"
-            android:layout_height="43dp"
-            android:background="@drawable/border_button"
-            android:ems="10"
-            android:hint="Price"
-            android:inputType="number"
-            android:minHeight="48dp"
-            android:paddingStart="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.214"
-            app:layout_constraintStart_toEndOf="@+id/textView4"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.457" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="452dp"
-            android:text="Total Seat"
+            android:layout_marginTop="40dp"
+            android:text="Total Seat: "
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/Seat"
-            app:layout_constraintHorizontal_bias="0.363"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/logoX" />
+            app:layout_constraintEnd_toEndOf="@+id/textView4"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <EditText
             android:id="@+id/Seat"
-            android:layout_width="65dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="440dp"
-            android:background="@drawable/border_button"
+            android:layout_marginTop="36dp"
             android:ems="10"
             android:hint="Seat"
-            android:inputType="numberDecimal"
+            android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:paddingStart="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.441"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/EventLogo"
-            android:layout_width="match_parent"
-            android:layout_height="218dp"
-            android:layout_marginTop="200dp"
-            android:autofillHints=""
-            android:background=""
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/AddEventPrice"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/AddEventPrice"
-            app:layout_constraintVertical_bias="0.494" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/uploadImage"
-            android:layout_width="146dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/button_bg"
-            android:text="Select Image"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="@+id/EventLogo"
-            app:layout_constraintTop_toBottomOf="@+id/EventLogo" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/UpdateEventButton"
-            android:layout_width="73dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/button_bg"
-            android:text="ADD"
-            android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uploadImage"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <ImageView
-            android:id="@+id/logoX"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:src="@drawable/loginlogo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="@+id/AddEventPrice"
+            app:layout_constraintTop_toBottomOf="@+id/AddEventPrice" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

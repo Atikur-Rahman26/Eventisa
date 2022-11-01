@@ -6,20 +6,15 @@ import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.atik.eventisa.Constants.Companion.EVENTBOOKED
-import com.atik.eventisa.Constants.Companion.EVENTDATE
-import com.atik.eventisa.Constants.Companion.EVENTDESCRPTION
-import com.atik.eventisa.Constants.Companion.EVENTID
-import com.atik.eventisa.Constants.Companion.EVENTIMAGE
-import com.atik.eventisa.Constants.Companion.EVENTLOCATION
-import com.atik.eventisa.Constants.Companion.EVENTPRICE
-import com.atik.eventisa.Constants.Companion.EVENTSEAT
-import com.atik.eventisa.Constants.Companion.EVENTTITLE
+import com.atik.eventisa.Constants.Companion.HostEmail
+import com.atik.eventisa.Constants.Companion.HostFirstName
+import com.atik.eventisa.Constants.Companion.HostLastName
+import com.atik.eventisa.Constants.Companion.HostName
+import com.atik.eventisa.Constants.Companion.HostPhone
+import com.atik.eventisa.Constants.Companion.HostUserName
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_admin_login_page.*
-import kotlinx.android.synthetic.main.activity_admin_login_page.EmailtAdmin
-import kotlinx.android.synthetic.main.activity_sign_up.*
 
 class AdminLoginPageActivity : AppCompatActivity() {
 
@@ -28,6 +23,7 @@ class AdminLoginPageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_login_page)
+        var auth=FirebaseAuth.getInstance()
 
 
         AdminLoginButton.setOnClickListener{
@@ -43,15 +39,72 @@ class AdminLoginPageActivity : AppCompatActivity() {
                  * This is for checking that the Admin is valid or not
                  *
                  */
-                AdminIsValid(adminUserName,adminEmailId,adminPassword)
+                AdminIsValidOrNot(adminUserName,adminEmailId,adminPassword)
             }
             else{
                 Toast.makeText(this,"No field can be left empty",Toast.LENGTH_SHORT).show()
             }
         }
+
+        HostSignUpButton.setOnClickListener{
+            val intent=Intent(this@AdminLoginPageActivity,HostSignUpActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun AdminIsValidOrNot(adminUserName: String, adminEmailId: String, adminPassword: String) {
+
+        val dialog= Dialog(this@AdminLoginPageActivity)
+        dialog.setContentView(R.layout.logging_dialog)
+        if(dialog.window!=null){
+            dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
+            dialog.show()
+        }
+
+
+        var fstore=FirebaseDatabase.getInstance().getReference("HostsTable")
+        fstore.addListenerForSingleValueEvent(object :ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                var flag=0
+                if(snapshot.exists()){
+                    for(datasnapshot in snapshot.children){
+                        if(datasnapshot.key.toString().equals(adminUserName)){
+                            HostEmail=adminEmailId
+                            HostFirstName=datasnapshot.child("hostFname").key.toString()
+                            HostLastName=datasnapshot.child("hostLname").key.toString()
+                            HostPhone=datasnapshot.child("hostPhone").key.toString()
+                            HostName= HostFirstName+" "+ HostLastName
+                            HostUserName=adminUserName
+                            flag=1
+                        }
+                    }
+                    if(flag==1){
+                        var auth=FirebaseAuth.getInstance()
+                        auth.signInWithEmailAndPassword(HostEmail,adminPassword).addOnSuccessListener {
+                            val intent=Intent(this@AdminLoginPageActivity,HostHomeActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        }.addOnFailureListener{
+                            dialog.dismiss()
+                            Toast.makeText(this@AdminLoginPageActivity,"Email or Password is wrong",Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else{
+                        Toast.makeText(this@AdminLoginPageActivity,"sorry!!such type of admin name found",Toast.LENGTH_SHORT)
+                    }
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+
     }
 
     private fun checking(): Boolean {
+
+
 
         if(AdminName.text.toString().isNotEmpty()&&EmailtAdmin.text.toString().isNotEmpty()
             &&PassWordAdmin.text.toString().isNotEmpty()){
@@ -61,6 +114,9 @@ class AdminLoginPageActivity : AppCompatActivity() {
         return false
     }
 
+
+    /**
+     *
 
     private fun AdminIsValid(adminUserName: String, adminEmailId: String, adminPassword: String) {
         val dialog= Dialog(this)
@@ -240,4 +296,5 @@ class AdminLoginPageActivity : AppCompatActivity() {
         })
 
     }
+    */
 }

@@ -18,5 +18,12 @@ class Constants {
         var EVENTSEAT:Long=0
         var EVENTDESCRPTION="eventDescription"
         var EVENTLOCATION="eventLocation"
+        var HostName="HostName"
+        var HostEmail="HostEmail"
+        var HostPhone="HostPhone"
+        var HostUserName="HostUserName"
+        var HostFirstName="fname"
+        var HostLastName="lname"
+        var HostUid="uid"
     }
 }
