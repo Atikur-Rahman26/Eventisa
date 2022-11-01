@@ -17,6 +17,12 @@
         android:theme="@style/Theme.Eventisa"
         tools:targetApi="31">
         <activity
+            android:name=".MakingDecisionForRefund"
+            android:exported="false" />
+        <activity
+            android:name=".RequestedEventToUserInfo"
+            android:exported="false" />
+        <activity
             android:name=".SeeRequestedEventDetails"
             android:exported="false" />
         <activity
