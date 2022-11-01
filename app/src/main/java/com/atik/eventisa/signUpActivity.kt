@@ -30,7 +30,6 @@ import java.util.regex.Pattern
 
 class signUpActivity : AppCompatActivity() {
 
-    private lateinit var binding:ActivityMainBinding
     private lateinit var databse:DatabaseReference
     private lateinit var auth: FirebaseAuth
     private lateinit var firebaseUser:FirebaseUser
@@ -43,10 +42,6 @@ class signUpActivity : AppCompatActivity() {
 
 
 
-        val languages=resources.getStringArray(R.array.Languages)
-        val arrayAdapter=ArrayAdapter(this,R.layout.country_item,languages)
-        arrayAdapter.setDropDownViewResource(R.layout.country_item)
-        CountryDropDownMenu.adapter=arrayAdapter
 
         auth=FirebaseAuth.getInstance()
 
@@ -63,8 +58,6 @@ class signUpActivity : AppCompatActivity() {
                 dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
             }
 
-
-            country=CountryDropDownMenu.selectedItem.toString()
 
             if(checking()){
                 var emailTEXT:String=emailSignUp.text.toString()
@@ -108,12 +101,17 @@ class signUpActivity : AppCompatActivity() {
                                                     val user=auth.currentUser
                                                     uId=auth.currentUser?.uid.toString()
 
+                                                    auth.currentUser?.sendEmailVerification()!!.addOnSuccessListener {
+                                                        Toast.makeText(this,"Please verify your mail",Toast.LENGTH_SHORT).show()
+                                                    }.addOnFailureListener{
+                                                        Toast.makeText(this,"Failed to sent verification mail",Toast.LENGTH_SHORT).show()
+                                                    }
+
 
                                                     val USERS=hashMapOf(
                                                         "uid" to uId,
                                                         "userName" to username,
                                                         "phoneNumber" to phoneNumbeR,
-                                                        "country" to country,
                                                         "Email" to emailTEXT,
                                                         "lastName" to LNAME,
                                                         "firstName" to FNAME
@@ -121,16 +119,15 @@ class signUpActivity : AppCompatActivity() {
 
                                                     databse=FirebaseDatabase.getInstance().getReference("UsersTable")
                                                     username=username.toLowerCase()
-                                                    val User=UserInfo(FNAME,LNAME,emailTEXT,country,phoneNumbeR,username, uId)
+                                                    val User=UserInfo(FNAME,LNAME,emailTEXT,phoneNumbeR,username, uId)
                                                     databse.child(username).setValue(User).addOnSuccessListener {
 //                                                        user.document(username).set(USERS)
                                                         Storeuser.document(username).set(USERS)
-                                                        fName.text.clear()
-                                                        lName.text.clear()
-                                                        UserNameTextField.text.clear()
-                                                        emailSignUp.text.clear()
-                                                        passwordTextSignUp.text.clear()
-                                                        phoneNumber.text.clear()
+
+                                                        /**
+                                                         * Clearing field
+                                                         */
+                                                        clearEverything()
                                                         dialog.dismiss()
                                                         val intent=Intent(this,Login::class.java)
                                                         startActivity(intent)
@@ -139,13 +136,11 @@ class signUpActivity : AppCompatActivity() {
                                                     }
                                                 }
                                             }
-
-
                                             /**
                                             *
                                             * Store the user data in firebase database
                                             * starting code  for  storing data
-                                            *  */
+                                            **/
                                         }
                                         else{
                                             dialog.dismiss()
@@ -176,6 +171,15 @@ class signUpActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    private fun clearEverything() {
+        fName.text.clear()
+        lName.text.clear()
+        UserNameTextField.text.clear()
+        emailSignUp.text.clear()
+        passwordTextSignUp.text.clear()
+        phoneNumber.text.clear()
     }
 /*
 

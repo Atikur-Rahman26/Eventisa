@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.item_email.*
+import kotlinx.android.synthetic.main.item_image.*
+import kotlinx.android.synthetic.main.item_info.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,5 +59,16 @@ class Profile : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        userUserNameProfileText.setText(Constants.username.toString())
+        userPhoneNumberProfileText.setText((Constants.phone.toString()))
+        userOriginalNameProfileText.setText(Constants.fname.toString()+" "+Constants.lname.toString())
+        userEmailProfileText.setText(Constants.email.toString())
+
     }
 }

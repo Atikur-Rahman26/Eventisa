@@ -17,6 +17,30 @@
         android:theme="@style/Theme.Eventisa"
         tools:targetApi="31">
         <activity
+            android:name=".SeeRequestedEventDetails"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdminLoginPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RequestedRefundAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RequestedEventAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainAdminHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HostSignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SeeMyEventHostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HostHomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".RefundStatusActivity"
             android:exported="false" />
         <activity

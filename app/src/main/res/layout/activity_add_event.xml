@@ -32,6 +32,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.991"
             app:layout_constraintStart_toStartOf="parent"
+            android:textColor="@color/black"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.37" />
 
@@ -47,6 +48,7 @@
             app:layout_constraintHorizontal_bias="0.525"
             app:layout_constraintStart_toEndOf="@+id/textView13"
             app:layout_constraintTop_toBottomOf="@+id/pickingDate"
+            android:textColor="@color/black"
             app:layout_constraintVertical_bias="0.029" />
 
         <TextView
@@ -57,6 +59,7 @@
             android:ems="10"
             android:textSize="16sp"
             android:textStyle="bold|italic"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/pickingDate"
             app:layout_constraintHorizontal_bias="0.818"
@@ -112,7 +115,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pickingDate"
             android:layout_width="99dp"
-            android:layout_height="30dp"
+            android:layout_height="48dp"
             android:background="@drawable/button_bg"
             android:text="pick date"
             android:textColor="@color/white"
@@ -154,12 +157,13 @@
         <EditText
             android:id="@+id/AddeventTitle"
             android:layout_width="295dp"
-            android:layout_height="42dp"
+            android:layout_height="48dp"
             android:background="@drawable/border_button"
             android:ems="10"
             android:hint="Title"
             android:inputType="textPersonName"
             android:paddingStart="10dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.238"
@@ -189,6 +193,7 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:text="Price"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/EventLogo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.393"
@@ -233,6 +238,7 @@
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="@+id/AddEventPrice"
             app:layout_constraintHorizontal_bias="0.0"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/AddEventPrice"
             app:layout_constraintTop_toBottomOf="@+id/AddEventPrice" />
 

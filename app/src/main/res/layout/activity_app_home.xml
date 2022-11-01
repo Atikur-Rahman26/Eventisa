@@ -19,9 +19,9 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/MainAdmin"
         android:layout_width="@dimen/_190sdp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:background="@drawable/button_bg2"
-        android:text="Host"
+        android:text="Admin"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,9 +33,9 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/EventUserButton"
         android:layout_width="@dimen/_190sdp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:background="@drawable/button_bg2"
-        android:text="Admin"
+        android:text="HOST"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +48,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/NormalUserButton"
         android:layout_width="@dimen/_190sdp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:layout_marginTop="204dp"
         android:background="@drawable/button_bg2"
         android:text="USER"

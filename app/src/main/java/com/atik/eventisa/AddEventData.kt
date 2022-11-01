@@ -8,5 +8,6 @@ data class AddEventData(
     val eventDescription:String?=null,
     val eventId:String?=null,
     val eventPrice: Int ?=null,
-    val eventSeat:Long?=null
+    val eventSeat:Long?=null,
+    val hostEmail:String?=null
 )

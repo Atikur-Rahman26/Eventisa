@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.atik.eventisa.Constants.Companion.EVENTBOOKED
 import com.atik.eventisa.Constants.Companion.EVENTDATE
-import com.atik.eventisa.Constants.Companion.EVENTIMAGE
 import com.atik.eventisa.Constants.Companion.EVENTPRICE
 import com.atik.eventisa.Constants.Companion.EVENTTITLE
 import com.bumptech.glide.Glide
@@ -19,7 +18,7 @@ class EventAdminDashboard : AppCompatActivity() {
         TotalSellTk.setText((EVENTBOOKED* EVENTPRICE).toString())
         eventDate.setText(EVENTDATE.toString())
         eventTitle.setText(EVENTTITLE.toString())
-        Glide.with(this).load(EVENTIMAGE).into(eventLogo)
-
+        var EventImage:String=intent.getStringExtra("eventImage").toString()
+        Glide.with(this).load(EventImage).into(eventLogo)
     }
 }
