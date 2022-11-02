@@ -10,7 +10,7 @@
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".RequestedEventAdminActivity"
+    tools:context=".Activity.RequestedEventAdminActivity"
     tools:ignore="SpeakableTextPresentCheck"
     tools:listitem="@layout/see_requested_event_item">
 

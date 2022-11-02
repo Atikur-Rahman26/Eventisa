@@ -17,90 +17,76 @@
         android:theme="@style/Theme.Eventisa"
         tools:targetApi="31">
         <activity
-            android:name=".MakingDecisionForRefund"
+            android:name=".Activity.ForgotPasswaordActivity"
             android:exported="false" />
         <activity
-            android:name=".RequestedEventToUserInfo"
+            android:name=".Activity.MakingDecisionForRefund"
             android:exported="false" />
         <activity
-            android:name=".SeeRequestedEventDetails"
+            android:name=".Activity.RequestedEventToUserInfo"
             android:exported="false" />
         <activity
-            android:name=".MainAdminLoginPageActivity"
+            android:name=".Activity.SeeRequestedEventDetails"
             android:exported="false" />
         <activity
-            android:name=".RequestedRefundAdminActivity"
+            android:name=".Activity.MainAdminLoginPageActivity"
             android:exported="false" />
         <activity
-            android:name=".RequestedEventAdminActivity"
+            android:name=".Activity.RequestedRefundAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".MainAdminHomeActivity"
+            android:name=".Activity.RequestedEventAdminActivity"
             android:exported="false" />
         <activity
-            android:name=".HostSignUpActivity"
+            android:name=".Activity.MainAdminHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SeeMyEventHostActivity"
+            android:name=".Activity.HostSignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".HostHomeActivity"
+            android:name=".Activity.SeeMyEventHostActivity"
             android:exported="false" />
         <activity
-            android:name=".RefundStatusActivity"
+            android:name=".Activity.HostHomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AppHome"
+            android:name=".Activity.RefundStatusActivity"
             android:exported="false" />
         <activity
-            android:name=".SeeEvent"
+            android:name=".Activity.AppHome"
             android:exported="false" />
         <activity
-            android:name=".AdminCreationPage"
+            android:name=".Activity.SeeEvent"
+            android:exported="false" />
+
+
+        <activity
+            android:name=".Activity.EventAdminDashboard"
+            android:exported="false" />
+
+        <activity
+            android:name=".Activity.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".Booked_Event"
+            android:name=".Activity.EventSelectedActivity"
             android:exported="false" />
         <activity
-            android:name=".UpdateEventActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EventAdminDashboard"
-            android:exported="false" />
-        <activity
-            android:name=".AdminHome"
-            android:exported="false"
-            android:label="@string/title_activity_admin_home"
-            android:theme="@style/Theme.Eventisa.NoActionBar" />
-        <activity
-            android:name=".SeeWhoBooked"
-            android:exported="false" />
-        <activity
-            android:name=".UserProfileActivity"
-            android:exported="false" />
-        <activity
-            android:name=".EventSelectedActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddEventActivity"
+            android:name=".Activity.AddEventActivity"
             android:exported="false"
             android:label="@string/title_activity_add_event"
             android:theme="@style/Theme.Eventisa.NoActionBar" />
         <activity
-            android:name=".AdminLoginPageActivity"
+            android:name=".Activity.AdminLoginPageActivity"
             android:exported="false" />
         <activity
-            android:name=".signUpActivity"
+            android:name=".Activity.signUpActivity"
             android:exported="false" />
         <activity
-            android:name=".EventsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Login"
+            android:name=".Activity.Login"
             android:exported="false"
             android:theme="@style/Theme.Noaction" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Noaction">
             <intent-filter>

@@ -10,7 +10,7 @@
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:context=".RequestedRefundAdminActivity"
+    tools:context=".Activity.RequestedRefundAdminActivity"
     tools:ignore="SpeakableTextPresentCheck"
     tools:listitem="@layout/requested_refund_list">
 

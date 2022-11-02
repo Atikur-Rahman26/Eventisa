@@ -13,7 +13,4 @@
     <item android:title="Favourite"
         android:id="@+id/Favourite"
         android:icon="@drawable/favourite"/>
-    <item android:title="booked"
-        android:id="@+id/Booked"
-        android:icon="@drawable/ic_baseline_calendar_today_24"/>
 </menu>

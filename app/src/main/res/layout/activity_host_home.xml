@@ -4,28 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HostHomeActivity">
-
-    <Button
-        android:id="@+id/UpdateEventHost"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="72dp"
-        android:text="Update Event"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".Activity.HostHomeActivity">
 
     <Button
         android:id="@+id/SeeMyEventHost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="288dp"
         android:text="See Event"
-        app:layout_constraintEnd_toEndOf="@+id/UpdateEventHost"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/UpdateEventHost"
-        app:layout_constraintTop_toBottomOf="@+id/UpdateEventHost" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/AddEventHost"
@@ -37,4 +27,36 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/SeeMyEventHost"
         app:layout_constraintTop_toBottomOf="@+id/SeeMyEventHost" />
+
+    <TextView
+        android:id="@+id/HostNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/HostEmailTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/HostNameTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/HostNameTextView"
+        app:layout_constraintTop_toBottomOf="@+id/HostNameTextView" />
+
+    <TextView
+        android:id="@+id/HostPhoneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/HostEmailTextView"
+        app:layout_constraintStart_toStartOf="@+id/HostEmailTextView"
+        app:layout_constraintTop_toBottomOf="@+id/HostEmailTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

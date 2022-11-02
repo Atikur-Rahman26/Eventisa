@@ -25,6 +25,7 @@
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_event_admin_dashboard.xml" value="0.20104166666666667" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_event_selected.xml" value="0.12" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_events.xml" value="0.2" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/activity_forgot_passwaord.xml" value="0.24010416666666667" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_host_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_host_sign_up.xml" value="0.15729166666666666" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/activity_login.xml" value="0.16" />
@@ -55,6 +56,7 @@
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/fragment_settings.xml" value="0.264" />
+        <entry key="..\:/Eventisa/app/src/main/res/layout/item_add.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/item_email.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/item_image.xml" value="0.25416666666666665" />
         <entry key="..\:/Eventisa/app/src/main/res/layout/item_info.xml" value="0.25416666666666665" />

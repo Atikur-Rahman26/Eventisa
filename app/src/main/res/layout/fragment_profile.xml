@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Profile">
+    tools:context=".Activity.Profile">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -33,11 +34,11 @@
                         android:layout_height="match_parent">
 
                         <ImageView
+                            android:id="@+id/notificationProfile"
                             android:layout_width="45dp"
                             android:layout_height="45dp"
                             android:layout_alignParentEnd="true"
                             android:layout_marginStart="5dp"
-                            android:layout_marginTop="5dp"
                             android:layout_marginEnd="41dp"
                             android:layout_marginBottom="5dp"
                             android:padding="1dp"
@@ -54,6 +55,14 @@
                             android:layout_marginBottom="5dp"
                             android:padding="1dp"
                             android:src="@drawable/ic_notification" />
+
+                        <ImageView
+                            android:id="@+id/SignOutProfile"
+                            android:layout_width="47dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="285dp"
+                            android:layout_toStartOf="@id/userNotificationProfile"
+                            android:src="@android:drawable/ic_lock_power_off" />
                     </RelativeLayout>
 
                     </LinearLayout>
