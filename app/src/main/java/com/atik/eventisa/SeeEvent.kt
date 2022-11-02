@@ -3,7 +3,9 @@ package com.atik.eventisa
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.atik.eventisa.Constants.Companion.email
 import com.atik.eventisa.Constants.Companion.uId
+import com.atik.eventisa.Constants.Companion.username
 import com.bumptech.glide.Glide
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_event_selected.*

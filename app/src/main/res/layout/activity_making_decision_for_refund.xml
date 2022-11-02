@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MakingDecisionForRefund">
+
+    <TextView
+        android:id="@+id/EventTitleRefund"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/RefundUserNAme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/EventTitleRefund"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/EventTitleRefund"
+        app:layout_constraintTop_toBottomOf="@+id/EventTitleRefund" />
+
+    <TextView
+        android:id="@+id/RefundUserMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/RefundUserNAme"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/RefundUserNAme"
+        app:layout_constraintTop_toBottomOf="@+id/RefundUserNAme" />
+
+    <Button
+        android:id="@+id/ConfrimRefundButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="260dp"
+        android:text="Confirm"
+        app:layout_constraintEnd_toEndOf="@+id/RefundUserMail"
+        app:layout_constraintStart_toStartOf="@+id/RefundUserMail"
+        app:layout_constraintTop_toBottomOf="@+id/RefundUserMail" />
+</androidx.constraintlayout.widget.ConstraintLayout>
