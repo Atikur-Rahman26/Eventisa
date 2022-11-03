@@ -13,6 +13,14 @@
         android:padding="20dp">
 
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:src="@drawable/loginlogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="2dp" />
+
         <LinearLayout
             android:id="@+id/AdminNameBox"
             android:layout_width="match_parent"
@@ -58,21 +66,24 @@
             android:id="@+id/emailBoxText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="376dp"
+            android:layout_marginBottom="380dp"
             android:layout_weight="5"
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AdminNameBox"
+            app:layout_constraintVertical_bias="1.0">
 
             <TextView
                 android:layout_width="72dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Email"
                 android:textColor="@color/editTextSubHeading"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/MainEmailtAdmin"
@@ -96,7 +107,7 @@
             android:id="@+id/passwordBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="28dp"
             android:layout_weight="5"
 
             android:orientation="vertical"
@@ -132,14 +143,15 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/MainAdminLoginButton"
-            android:layout_width="290dp"
-            android:layout_height="48dp"
+            android:layout_width="230dp"
+            android:layout_height="40dp"
             android:layout_marginTop="60dp"
-            android:background="@drawable/count_background"
-            android:backgroundTint="@color/registerBtn"
+            android:background="@drawable/button_bg"
             android:text="Login To Admin"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -149,13 +161,13 @@
             android:id="@+id/textView2"
             android:layout_width="204dp"
             android:layout_height="42dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="100dp"
             android:text="Admin Login"
             android:textColor="#D32F2F"
             android:textSize="34sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

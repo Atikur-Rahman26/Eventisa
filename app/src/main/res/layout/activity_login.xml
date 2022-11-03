@@ -158,7 +158,7 @@
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="216dp"
-                android:layout_height="264dp"
+                android:layout_height="273dp"
                 android:layout_weight="1"
                 android:background="@drawable/custom_app_bar_background"
                 android:scaleType="fitXY"

@@ -36,11 +36,11 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="JohnWick123"
+                android:hint="example123"
                 android:maxLines="1"
                 android:paddingLeft="15dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#757575" />
 
         </LinearLayout>
 
@@ -89,11 +89,11 @@
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/btn_bg"
-                    android:hint="Jhon"
+                    android:hint="first name"
                     android:maxLines="1"
                     android:paddingLeft="15dp"
                     android:textColor="@android:color/black"
-                    android:textColorHint="#6EA9E4" />
+                    android:textColorHint="#757575" />
             </LinearLayout>
 
             <LinearLayout
@@ -118,11 +118,11 @@
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/btn_bg"
-                    android:hint="Wick"
+                    android:hint="last name"
                     android:maxLines="1"
                     android:paddingLeft="15dp"
                     android:textColor="@android:color/black"
-                    android:textColorHint="#6EA9E4" />
+                    android:textColorHint="#757575" />
             </LinearLayout>
 
         </LinearLayout>
@@ -153,12 +153,12 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="jhonwick@gmail.com"
+                android:hint="example@email.com"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#757575" />
         </LinearLayout>
 
         <LinearLayout
@@ -206,7 +206,7 @@
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#757575" />
 
         </LinearLayout>
 
@@ -236,23 +236,24 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="01886422493"
+                android:hint="01*********"
                 android:maxLength="11"
                 android:inputType="phone"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#757575" />
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/registerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/btn_bg"
-            android:backgroundTint="@color/registerBtn"
+            android:background="@drawable/button_bg"
             android:text="Register"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phoneBox" />
@@ -270,7 +271,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="already have an account ?"
+                android:text="Already have an account?"
                 android:textColor="#F12020"
 
                 android:textSize="20sp"
