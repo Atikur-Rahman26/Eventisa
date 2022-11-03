@@ -11,6 +11,7 @@
         android:background="@color/white"
         android:padding="20dp">
 
+
         <LinearLayout
             android:layout_width="376dp"
             android:layout_height="89dp"
@@ -36,11 +37,11 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="JohnWick123"
+                android:hint="example123"
                 android:maxLines="1"
                 android:paddingLeft="15dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#A1887F" />
 
         </LinearLayout>
 
@@ -89,11 +90,12 @@
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/btn_bg"
-                    android:hint="Jhon"
+                    android:hint="first name"
+                    android:textColorHint="#A1887F"
                     android:maxLines="1"
                     android:paddingLeft="15dp"
                     android:textColor="@android:color/black"
-                    android:textColorHint="#6EA9E4" />
+                    />
             </LinearLayout>
 
             <LinearLayout
@@ -118,11 +120,11 @@
                     android:layout_height="50dp"
                     android:layout_margin="5dp"
                     android:background="@drawable/btn_bg"
-                    android:hint="Wick"
+                    android:hint="last name"
                     android:maxLines="1"
                     android:paddingLeft="15dp"
                     android:textColor="@android:color/black"
-                    android:textColorHint="#6EA9E4" />
+                    android:textColorHint="#A1887F" />
             </LinearLayout>
 
         </LinearLayout>
@@ -153,12 +155,12 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="jhonwick@gmail.com"
+                android:hint="example@email.com"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#A1887F" />
         </LinearLayout>
 
         <LinearLayout
@@ -167,6 +169,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:orientation="vertical"
+            android:layout_marginTop="5dp"
             app:layout_constraintEnd_toEndOf="parent"
 
             app:layout_constraintHorizontal_bias="0.0"
@@ -199,14 +202,14 @@
                 android:id="@+id/passwordTextSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_margin="0dp"
                 android:background="@drawable/btn_bg"
                 android:hint="*********"
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#A1887F" />
 
         </LinearLayout>
 
@@ -214,7 +217,7 @@
             android:id="@+id/phoneBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="16dp"
             android:layout_weight="5"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
@@ -236,23 +239,24 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/btn_bg"
-                android:hint="01886422493"
+                android:hint="01*********"
                 android:maxLength="11"
                 android:inputType="phone"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#A1887F" />
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/registerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/btn_bg"
-            android:backgroundTint="@color/registerBtn"
+            android:background="@drawable/button_bg"
             android:text="Register"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/phoneBox" />
@@ -270,7 +274,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="already have an account ?"
+                android:text="Already have an account ?"
                 android:textColor="#F12020"
 
                 android:textSize="20sp"
