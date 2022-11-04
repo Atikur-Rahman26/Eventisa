@@ -40,19 +40,23 @@
             <TextView
                 android:id="@+id/Refund_Status_event_title"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Refund_Status_Event_Date"/>
+                android:id="@+id/Refund_Status_Event_Date"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Refund_Status_Event_Location"/>
+                android:id="@+id/Refund_Status_Event_Location"
+                android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/Refund_Status_event_desc"/>
+                android:id="@+id/Refund_Status_event_desc"
+                android:textColor="@color/black"/>
 
             <!--Give string here inside the text view to show description-->
 
