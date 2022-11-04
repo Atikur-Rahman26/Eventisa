@@ -172,6 +172,8 @@
             android:layout_marginTop="76dp"
             android:text="Forgot password?"
             android:textSize="15sp"
+            android:textStyle="italic"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.865"
             app:layout_constraintStart_toStartOf="parent"
