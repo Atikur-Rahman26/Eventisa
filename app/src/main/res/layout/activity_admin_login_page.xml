@@ -22,19 +22,19 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/textView2"
-            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/textView2"
             app:layout_constraintTop_toBottomOf="@+id/textView2"
-            app:layout_constraintVertical_bias="0.833">
+            app:layout_constraintVertical_bias="0.575">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Admin Name"
                 android:textColor="@color/editTextSubHeading"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/AdminName"
@@ -63,16 +63,18 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/AdminNameBox"
+            app:layout_constraintVertical_bias="0.402">
 
             <TextView
                 android:layout_width="72dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
                 android:text="Email"
                 android:textColor="@color/editTextSubHeading"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/EmailtAdmin"
@@ -96,22 +98,23 @@
             android:id="@+id/passwordBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="36dp"
             android:layout_weight="5"
 
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@+id/emailBoxText"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/emailBoxText"
             app:layout_constraintTop_toBottomOf="@+id/emailBoxText">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
                 android:text="Password"
                 android:textColor="@color/editTextSubHeading"
                 android:textSize="24sp"
-                android:textStyle="bold"
-                android:layout_marginLeft="10dp"/>
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/PassWordAdmin"
@@ -131,14 +134,15 @@
 
         </LinearLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/AdminLoginButton"
-            android:layout_width="290dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:background="@drawable/count_background"
-            android:backgroundTint="@color/registerBtn"
-            android:text="Login To Admin"
+            android:background="@drawable/button_bg"
+            android:text="Login"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
@@ -146,10 +150,10 @@
 
         <TextView
             android:id="@+id/textView2"
-            android:layout_width="204dp"
+            android:layout_width="wrap_content"
             android:layout_height="42dp"
             android:layout_marginTop="28dp"
-            android:text="Admin Login"
+            android:text="Organizer"
             android:textColor="#D32F2F"
             android:textSize="34sp"
             android:textStyle="bold"
@@ -158,14 +162,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <TextView
             android:id="@+id/HostSignUpButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="Sign up"
+            android:layout_marginTop="36dp"
+            android:text="Don't have account? Sign up"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="@+id/AdminLoginButton"
-            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="@+id/AdminLoginButton"
             app:layout_constraintTop_toBottomOf="@+id/AdminLoginButton" />
 
