@@ -15,7 +15,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:background="@color/smokyWhite"
@@ -35,27 +35,31 @@
             android:id="@+id/event_title1"
             android:layout_width="305dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="4dp"
             android:text="This is a simple Text"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/Event_logo" />
 
         <TextView
             android:id="@+id/Event_Date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="168dp"
+            android:layout_marginBottom="36dp"
+            android:paddingStart="10dp"
             android:text="This is will show date"
             android:textColor="@color/black"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="@+id/Event_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_title1"
+            app:layout_constraintVertical_bias="1.0" />
 
         <TextView
             android:id="@+id/Event_Location"
@@ -65,6 +69,8 @@
             android:text="This will show location"
             android:textColor="@color/black"
             android:textSize="15sp"
+            android:paddingStart="10dp"
+            android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/Event_Date"

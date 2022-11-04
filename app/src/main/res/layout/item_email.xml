@@ -13,12 +13,14 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
         <LinearLayout
             android:orientation="horizontal"
             android:padding="3dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
             <ImageView
                 android:src="@drawable/ic_email"
                 android:padding="2dp"

@@ -17,14 +17,17 @@
         android:orientation="vertical"
         android:padding="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/white">
         <RelativeLayout
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <LinearLayout
                 android:orientation="horizontal"
                 android:padding="1dp"
                 android:gravity="center"
+                android:background="@color/white"
                 android:layout_alignParentStart="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
@@ -49,7 +52,8 @@
                 android:gravity="center"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white">
                 <ImageView
                     android:padding="5dp"
                     android:src="@drawable/ic_add"
@@ -70,7 +74,8 @@
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="@color/white">
             <ImageView
                 app:tint="@color/black"
                 android:padding="2dp"
@@ -81,7 +86,8 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@color/white">
                 <!-- ekhane firebase e address up diye ante paris kina dhekis -->
                 <TextView
                     android:text="Dhaka,Bangladesh."

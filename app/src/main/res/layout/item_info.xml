@@ -11,6 +11,7 @@
     app:cardUseCompatPadding="true"
     card_view:cardCornerRAdius="5dp">
     <LinearLayout
+        android:background="@color/white"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
