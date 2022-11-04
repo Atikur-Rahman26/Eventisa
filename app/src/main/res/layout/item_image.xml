@@ -118,7 +118,8 @@
         android:padding="5dp"
         android:layout_centerHorizontal="true"
         android:layout_width="98dp"
-        android:layout_height="98dp"/>
+        android:layout_height="98dp"
+        android:src="@drawable/ic_account_circle"/>
 
 </RelativeLayout>
 
