@@ -6,23 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".Activity.MainAdminHomeActivity">
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/EventRequestedAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="132dp"
         android:text="Requested Event"
+        android:background="@drawable/button_bg"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/RequestedRefundButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
         android:text="Requested Refund"
+        android:background="@drawable/button_bg"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/EventRequestedAdmin"
         app:layout_constraintStart_toStartOf="@+id/EventRequestedAdmin"
         app:layout_constraintTop_toBottomOf="@+id/EventRequestedAdmin" />
