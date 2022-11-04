@@ -83,13 +83,13 @@
 
         <LinearLayout
             android:id="@+id/CreateAccount"
-            android:layout_width="362dp"
-            android:layout_height="41dp"
-            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/LoginButton">
 
@@ -104,7 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="1dp"
                 android:text="Sign Up"
                 android:textColor="@color/textHeading"
                 android:textSize="20sp"
