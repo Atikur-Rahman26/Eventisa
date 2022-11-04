@@ -132,8 +132,8 @@
 
         <TextView
             android:id="@+id/textView"
-            android:layout_width="110dp"
-            android:layout_height="60dp"
+            android:layout_width="@dimen/_90sdp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="312dp"
             android:text="Sign In"
             android:textColor="#E60909"
