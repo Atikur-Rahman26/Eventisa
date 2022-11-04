@@ -39,21 +39,27 @@
                 android:id="@+id/event_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="15sp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Event_Date"
+                android:textSize="10sp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/Event_Location"
+                android:textSize="10sp"
                 android:textColor="@color/black"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/event_desc"
+                android:textStyle="normal"
+                android:textSize="10sp"
                 android:textColor="@color/black"/>
 
             <!--Give string here inside the text view to show description-->
