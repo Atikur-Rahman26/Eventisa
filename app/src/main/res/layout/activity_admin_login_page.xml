@@ -178,7 +178,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Already have an account?"
+                android:text="Don't have an account?"
                 android:textColor="#F12020"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -187,7 +187,7 @@
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
-                android:text="Sign In"
+                android:text="Sign up"
                 android:textColor="@color/textHeading"
                 android:textSize="20sp"
                 android:textStyle="bold" />
