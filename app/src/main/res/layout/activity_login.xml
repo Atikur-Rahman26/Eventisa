@@ -37,13 +37,13 @@
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/count_background"
-                android:hint="jhonwick@gmail.com"
+                android:hint="Enter your email here"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
                 android:paddingLeft="20dp"
                 android:textColor="@android:color/black"
                 android:textColorHighlight="#F12020"
-                android:textColorHint="#6EA9E4" />
+                android:textColorHint="#757575" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,13 +67,14 @@
 
         </LinearLayout>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/LoginButton"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-
-            android:backgroundTint="@color/registerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_bg"
             android:text="Sign In"
+            android:textStyle="bold"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -94,16 +95,15 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="don't have an account ?"
+                android:layout_height="30dp"
+                android:text="Don't have an account?"
                 android:textColor="#E11010"
-
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_marginLeft="10dp"
                 android:text="Sign Up"
                 android:textColor="@color/textHeading"
@@ -124,7 +124,7 @@
             android:maxLines="1"
             android:paddingLeft="20dp"
             android:textColor="@android:color/black"
-            android:textColorHint="#78ACDF"
+            android:textColorHint="#757575"
             app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordBox"
@@ -134,35 +134,35 @@
             android:id="@+id/textView"
             android:layout_width="110dp"
             android:layout_height="60dp"
-            android:layout_marginTop="280dp"
+            android:layout_marginTop="312dp"
             android:text="Sign In"
             android:textColor="#E60909"
             android:textSize="34sp"
             android:textStyle="bold"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.422"
+            app:layout_constraintHorizontal_bias="0.431"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.083" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="442dp"
+            android:layout_width="wrap_content"
             android:layout_height="292dp"
             android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="216dp"
-                android:layout_height="273dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/custom_app_bar_background"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/dj_image" />
+                app:srcCompat="@drawable/loginframe" />
         </LinearLayout>
 
         <TextView
@@ -170,7 +170,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="76dp"
-            android:text="Forgot password"
+            android:text="Forgot password?"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.865"
             app:layout_constraintStart_toStartOf="parent"
