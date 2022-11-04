@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Family"
+                        android:text="Notifications"
                         android:textColor="#636262"
                         android:textSize="14sp"
                         android:textStyle="bold" />
@@ -97,7 +97,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Vitals"
+                        android:text="Tickets Data"
                         android:textColor="#636262"
                         android:textSize="14sp"
                         android:textStyle="bold" />

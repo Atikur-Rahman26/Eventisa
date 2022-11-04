@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/Card_View"
-    android:layout_margin="15dp"
+    android:layout_margin="10dp"
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
@@ -16,16 +16,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:background="@color/teal_200"
+        android:background="@color/white"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/FavouriteButton"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_gravity="bottom|end"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="216dp"
             android:background="@drawable/favourites_shadow"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.011"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,8 +49,6 @@
             android:layout_width="381dp"
             android:layout_height="212dp"
             android:scaleType="fitXY"
-
-
             app:layout_constraintBottom_toTopOf="@+id/FavouriteButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

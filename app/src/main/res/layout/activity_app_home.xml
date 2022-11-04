@@ -34,22 +34,21 @@
         android:id="@+id/EventUserButton"
         android:layout_width="@dimen/_190sdp"
         android:layout_height="48dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/button_bg2"
         android:text="HOST"
         android:textColor="@color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/NormalUserButton"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/NormalUserButton"
-        app:layout_constraintTop_toBottomOf="@+id/NormalUserButton"
-        app:layout_constraintVertical_bias="0.193" />
+        app:layout_constraintTop_toBottomOf="@+id/NormalUserButton" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/NormalUserButton"
         android:layout_width="@dimen/_190sdp"
         android:layout_height="48dp"
-        android:layout_marginTop="204dp"
+        android:layout_marginTop="48dp"
         android:background="@drawable/button_bg2"
         android:text="USER"
         android:textColor="@color/white"
@@ -57,5 +56,5 @@
         app:layout_constraintEnd_toEndOf="@+id/MainAdmin"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/MainAdmin"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/MainAdmin" />
 </androidx.constraintlayout.widget.ConstraintLayout>

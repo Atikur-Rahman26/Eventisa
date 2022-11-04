@@ -56,24 +56,25 @@
 
             <!--Give string here inside the text view to show description-->
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/RefundStatus"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@drawable/button_bg"
-                android:paddingTop="5dp"
+                android:layout_marginBottom="10dp"
                 android:text="Request Refund"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/CancelRefundRequest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_bg"
                 android:text="Cancel Request"
+                android:layout_marginTop="10dp"
                 android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"

@@ -39,12 +39,15 @@
         app:layout_constraintStart_toStartOf="@+id/RefundUserNAme"
         app:layout_constraintTop_toBottomOf="@+id/RefundUserNAme" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/ConfrimRefundButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="260dp"
+        android:background="@drawable/button_bg"
         android:text="Confirm"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/RefundUserMail"
         app:layout_constraintStart_toStartOf="@+id/RefundUserMail"
         app:layout_constraintTop_toBottomOf="@+id/RefundUserMail" />
