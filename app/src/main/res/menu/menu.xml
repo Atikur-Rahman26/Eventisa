@@ -9,5 +9,5 @@
         android:icon="@drawable/ic_baseline_person_24"/>
     <item android:title="Favourite"
         android:id="@+id/Favourite"
-        android:icon="@drawable/favourite"/>
+        android:icon="@drawable/ic_ticket"/>
 </menu>
