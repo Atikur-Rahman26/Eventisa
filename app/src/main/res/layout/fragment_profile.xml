@@ -14,114 +14,119 @@
         android:text="@string/hello_blank_fragment" /> -->
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:gravity="center"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center"
-            android:background="@drawable/background"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:padding="8dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="?attr/actionBarSize">
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                android:layout_width="wrap_content"
+                android:layout_height="?attr/actionBarSize"
+                android:orientation="horizontal"
+                android:padding="8dp">
 
-                        <ImageView
-                            android:id="@+id/notificationProfile"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginEnd="41dp"
-                            android:layout_marginBottom="5dp"
-                            android:padding="1dp"
-                             />
-
-                        <ImageView
-                            android:id="@+id/userNotificationProfile"
-                            android:layout_width="45dp"
-                            android:layout_height="45dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginStart="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginEnd="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:padding="1dp"
-                             />
-
-                        <ImageView
-                            android:id="@+id/SignOutProfile"
-                            android:layout_width="47dp"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="285dp"
-                            android:layout_toStartOf="@id/userNotificationProfile"
-                            android:src="@android:drawable/ic_lock_power_off" />
-                    </RelativeLayout>
-
-                    </LinearLayout>
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_marginTop="10dp"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:text="My"
-                        android:textColor="@color/white"
-                        android:textSize="30sp"
-                        android:textStyle="normal"
-                        android:layout_marginStart="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:text="Profile"
-                        android:textColor="@color/white"
-                        android:textSize="33sp"
-                        android:textStyle="bold"
-                        android:layout_marginStart="15dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                    android:layout_height="match_parent">
 
-                </LinearLayout>
+                    <ImageView
+                        android:id="@+id/notificationProfile"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="41dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="1dp" />
 
+                    <ImageView
+                        android:id="@+id/userNotificationProfile"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:padding="1dp" />
+
+                    <ImageView
+                        android:id="@+id/SignOutProfile"
+                        android:layout_width="47dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="285dp"
+                        android:layout_toStartOf="@id/userNotificationProfile"
+                        android:src="@android:drawable/ic_lock_power_off" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="My"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="normal" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="33sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <include
+            layout="@layout/item_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:overScrollMode="never"
+            android:scrollbars="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <include layout="@layout/item_add" />
+
+                <include layout="@layout/item_info" />
+
+                <include layout="@layout/item_email" />
 
 
             </LinearLayout>
 
-            <include
-                layout="@layout/item_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp" />
 
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:overScrollMode="never"
-                android:scrollbars="horizontal">
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal">
-                    <include layout="@layout/item_add"/>
-                    <include layout="@layout/item_info"/>
-                    <include layout="@layout/item_email"/>
+        </ScrollView>
 
-
-
-                </LinearLayout>
-
-
-
-            </ScrollView>
-
-        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>
