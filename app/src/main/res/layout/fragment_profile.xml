@@ -104,11 +104,11 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
                 <LinearLayout
                     android:orientation="vertical"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent">
                     <include layout="@layout/item_add"/>
                     <include layout="@layout/item_info"/>
                     <include layout="@layout/item_email"/>
