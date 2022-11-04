@@ -264,11 +264,13 @@
 
         <LinearLayout
             android:id="@+id/AdminLoginPageButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/registerBtn">
 
@@ -277,7 +279,6 @@
                 android:layout_height="wrap_content"
                 android:text="Already have an account?"
                 android:textColor="#F12020"
-
                 android:textSize="20sp"
                 android:textStyle="bold" />
 

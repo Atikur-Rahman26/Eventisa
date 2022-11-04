@@ -12,13 +12,13 @@
         android:padding="20dp">
 
         <LinearLayout
-            android:layout_width="376dp"
-            android:layout_height="89dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:layout_weight="5"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@+id/passwordBox"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/passwordBox"
             app:layout_constraintTop_toBottomOf="@id/textRow">
 
@@ -34,7 +34,7 @@
                 android:id="@+id/UserNameTextField"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/border_button"
                 android:hint="example123"
                 android:maxLines="1"
@@ -150,7 +150,7 @@
                 android:id="@+id/emailSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/border_button"
                 android:hint="example@email.com"
                 android:inputType="textEmailAddress"
@@ -199,7 +199,6 @@
                 android:id="@+id/passwordTextSignUp"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="0dp"
                 android:background="@drawable/border_button"
                 android:hint="*********"
                 android:inputType="textPassword"
@@ -234,7 +233,7 @@
                 android:id="@+id/phoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/border_button"
                 android:hint="01*********"
                 android:inputType="phone"
@@ -260,20 +259,22 @@
 
         <LinearLayout
             android:id="@+id/AdminLoginPageButton"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="10dp"
-            app:layout_constraintTop_toBottomOf="@id/registerBtn"
-            tools:layout_editor_absoluteX="20dp">
+            android:padding="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/registerBtn">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Already have an account?"
                 android:textColor="#F12020"
-
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
