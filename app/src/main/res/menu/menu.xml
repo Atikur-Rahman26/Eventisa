@@ -7,7 +7,7 @@
     <item android:title="profile"
         android:id="@+id/Profile"
         android:icon="@drawable/ic_baseline_person_24"/>
-    <item android:title="Favourite"
+    <item android:title="Booked"
         android:id="@+id/Favourite"
         android:icon="@drawable/ic_ticket"/>
 </menu>
