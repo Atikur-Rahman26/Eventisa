@@ -22,10 +22,10 @@
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintHorizontal_bias="0.052"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="582dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="593dp" />
 
         <ImageView
             android:id="@+id/logoX"
@@ -72,15 +72,16 @@
             android:layout_height="33dp"
             android:background="@color/grey"
             android:ems="10"
+            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
             android:textStyle="bold|italic"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/pickingDate"
-            app:layout_constraintHorizontal_bias="0.838"
+            app:layout_constraintHorizontal_bias="0.846"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.611" />
+            app:layout_constraintVertical_bias="0.616" />
 
         <TextView
             android:id="@+id/textView9"
@@ -129,8 +130,8 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/pickingDate"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
             android:background="@drawable/ic_calendar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
