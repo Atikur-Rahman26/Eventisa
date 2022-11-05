@@ -12,6 +12,7 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".Activity.SeeMyEventHostActivity"
     tools:ignore="SpeakableTextPresentCheck"
+    android:forceDarkAllowed="false"
     tools:listitem="@layout/see_event_host_item">
 
 </androidx.recyclerview.widget.RecyclerView>

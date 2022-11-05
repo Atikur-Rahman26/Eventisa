@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:forceDarkAllowed="false"
     tools:context=".Activity.HostHomeActivity">
 
     <androidx.appcompat.widget.AppCompatButton
@@ -28,10 +29,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
+        android:background="@drawable/button_bg"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:text="Add Event"
-        android:background="@drawable/button_bg"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/SeeMyEventHost"
@@ -70,4 +71,15 @@
         app:layout_constraintEnd_toEndOf="@+id/HostEmailTextView"
         app:layout_constraintStart_toStartOf="@+id/HostEmailTextView"
         app:layout_constraintTop_toBottomOf="@+id/HostEmailTextView" />
+
+    <ImageView
+        android:id="@+id/LogOutButton"
+        android:layout_width="72dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="218dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.112"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddEventHost"
+        app:srcCompat="@android:drawable/ic_lock_power_off" />
 </androidx.constraintlayout.widget.ConstraintLayout>

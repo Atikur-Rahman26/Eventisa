@@ -9,6 +9,7 @@
     android:layout_margin="15dp"
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="12dp"
+    android:forceDarkAllowed="false"
     app:cardElevation="4dp"
     tools:ignore="SpeakableTextPresentCheck"
     android:background="@color/teal_200">
@@ -16,6 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:forceDarkAllowed="false"
         android:background="@color/smokyWhite"
         android:orientation="vertical">
 

@@ -2,6 +2,7 @@ package com.atik.eventisa.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.atik.eventisa.Adapter.RequestedEventToUserAdapter
@@ -11,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_requested_event_to_user_info.*
 
 class RequestedEventToUserInfo : AppCompatActivity() {
 
@@ -56,7 +58,10 @@ class RequestedEventToUserInfo : AppCompatActivity() {
 
                                         if(RefundEventToUserList.isEmpty()){
 
+                                            NoDataToShow.visibility=View.VISIBLE
+
                                         }else{
+                                            NoDataToShow.visibility=View.INVISIBLE
                                             RefundEventToUserRecyclerView.adapter=
                                                 RequestedEventToUserAdapter(RefundEventToUserList,this@RequestedEventToUserInfo,intent.getStringExtra("Id").toString(),intent.getStringExtra("Title").toString())
                                         }

@@ -10,6 +10,7 @@
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
+    android:forceDarkAllowed="false"
     tools:ignore="SpeakableTextPresentCheck"
     android:background="@color/smokyWhite">
 

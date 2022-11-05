@@ -1,6 +1,8 @@
 package com.atik.eventisa.Activity
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,6 +26,11 @@ class Login : AppCompatActivity() {
 
         auth=FirebaseAuth.getInstance()
 
+        val dialog= Dialog(this)
+        dialog.setContentView(R.layout.logging_dialog)
+        if(dialog.window!=null){
+            dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
+        }
         val currentUserLoggedIn=auth.currentUser
         var UserName:String=""
 //        if(currentUserLoggedIn!=null&&auth.currentUser!!.isEmailVerified){
@@ -78,6 +85,7 @@ class Login : AppCompatActivity() {
         LoginButton.setOnClickListener{
 
             if(checking()){
+                dialog.show()
                 var UserName=EmailtAdmin.text.trim{it<=' '}.toString()//removing extra space
                 var PassWord=PassWordAdmin.text.trim{it<=' '}.toString() //removing extra space
 
@@ -119,16 +127,19 @@ class Login : AppCompatActivity() {
                                 })
                                 EmailtAdmin.text.clear()
                                 PassWordAdmin.text.clear()
+                                dialog.dismiss()
                                 val intent=Intent(this, UserProfileActivity::class.java)
                                 intent.putExtra("email",UserName)
                                 startActivity(intent)
                                 finish()
                             }
                             else{
+                                dialog.dismiss()
                                 Toast.makeText(this,"Please verify your mail first",Toast.LENGTH_SHORT).show()
                             }
                         }
                         else{
+                            dialog.dismiss()
                             Toast.makeText(this,"Wrong email or password",Toast.LENGTH_SHORT).show()
                             EmailtAdmin.text.clear()
                             PassWordAdmin.text.clear()
@@ -140,14 +151,16 @@ class Login : AppCompatActivity() {
             }
         }
 
-        CreateAccount.setOnClickListener{
+        SignupActivitybutton.setOnClickListener{
             val intent=Intent(this, signUpActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         ForgotPasswordUserButton.setOnClickListener {
             val intent=Intent(this, ForgotPasswaordActivity::class.java)
             startActivity(intent)
+            finish()
         }
     }
 

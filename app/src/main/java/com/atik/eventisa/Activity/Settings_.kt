@@ -16,6 +16,7 @@ import com.atik.eventisa.DataClasses.Constants.Companion.uId
 import com.atik.eventisa.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -121,12 +122,18 @@ class Settings_ : Fragment() {
                     }
                 }
 
-                try {
-                    RefundRecyclerView.adapter =
-                        RefundListViewAdapter(RefundList, requireContext())
-                }catch (e:Exception){
-                    println(e.message)
-                    Log.i(ContentValues.TAG, "onDataChange: ${e.message} ")
+                if(RefundList.isEmpty()){
+                    NoDataShowing.visibility=View.VISIBLE
+                }
+                else{
+                    try {
+                        NoDataShowing.visibility=View.INVISIBLE
+                        RefundRecyclerView.adapter =
+                            RefundListViewAdapter(RefundList, requireContext())
+                    }catch (e:Exception){
+                        println(e.message)
+                        Log.i(ContentValues.TAG, "onDataChange: ${e.message} ")
+                    }
                 }
 
             }

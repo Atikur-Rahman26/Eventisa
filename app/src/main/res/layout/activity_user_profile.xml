@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
+    android:forceDarkAllowed="false"
     tools:context=".Activity.UserProfileActivity">
 
 
@@ -13,6 +14,7 @@
         android:layout_width="392dp"
         android:layout_height="662dp"
         android:layout_marginBottom="52dp"
+        android:forceDarkAllowed="false"
         app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.272"
@@ -30,5 +32,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
+        android:forceDarkAllowed="false"
         app:menu="@menu/menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.atik.eventisa.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -9,6 +10,7 @@ import com.atik.eventisa.Adapter.RequestedRefundAdapterEvent
 import com.atik.eventisa.DataClasses.AddEventData
 import com.atik.eventisa.R
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_requested_refund_admin.*
 
 class RequestedRefundAdminActivity : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class RequestedRefundAdminActivity : AppCompatActivity() {
     }
 
     private fun getEventData() {
+        NothingToShow.visibility=View.VISIBLE
         var str:ArrayList<String>
         str= arrayListOf<String>()
         var ref=FirebaseDatabase.getInstance().getReference("RefundList")
@@ -48,9 +51,11 @@ class RequestedRefundAdminActivity : AppCompatActivity() {
 
                             if(i==str.size-1){
                                 if(SeeRequestedRefundList.isEmpty()){
-                                    println("Empty!!!!")
+                                    println("this is printing!!!1")
+
                                 }
                                 else{
+                                    NothingToShow.visibility=View.INVISIBLE
                                     SeeRequestedRefundRecyclerView.adapter=
                                         RequestedRefundAdapterEvent(SeeRequestedRefundList,this@RequestedRefundAdminActivity)
                                 }
@@ -63,7 +68,6 @@ class RequestedRefundAdminActivity : AppCompatActivity() {
                     })
                 }
 
-                println(SeeRequestedRefundList)
 
 
 

@@ -8,6 +8,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:overScrollMode="never"
+    android:forceDarkAllowed="false"
     android:scrollbars="vertical">
 
 

@@ -8,6 +8,7 @@
     android:id="@+id/Card_View"
     android:layout_margin="15dp"
     android:foreground="?selectableItemBackground"
+    android:forceDarkAllowed="false"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp"
     tools:ignore="SpeakableTextPresentCheck"

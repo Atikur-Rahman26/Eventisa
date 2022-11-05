@@ -7,6 +7,7 @@
     app:cardElevation="10dp"
     android:background="@color/white"
     android:layout_width="match_parent"
+    android:forceDarkAllowed="false"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
     card_view:cardCornerRAdius="5dp">
@@ -14,6 +15,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:forceDarkAllowed="false"
         android:background="@color/white">
         <LinearLayout
             android:orientation="horizontal"

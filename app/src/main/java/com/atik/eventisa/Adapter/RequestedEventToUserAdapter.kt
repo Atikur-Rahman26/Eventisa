@@ -42,6 +42,7 @@ class RequestedEventToUserAdapter(
                 it.putExtra("eventTitle",eventTitle)
                 ContextCompat.startActivity(context,it, Bundle())
             }
+            (context as RequestedEventToUserInfo).finish()
         }
     }
 

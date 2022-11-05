@@ -1,5 +1,6 @@
 package com.atik.eventisa.Activity
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +14,7 @@ import com.atik.eventisa.DataClasses.AddEventData
 import com.atik.eventisa.DataClasses.Constants.Companion.username
 import com.atik.eventisa.R
 import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
@@ -111,6 +113,7 @@ class Home : Fragment() {
                 }
                 else {
                     try{
+                        DataLoadingProgressBar.visibility=View.INVISIBLE
                         println(EventArrayList)
                         eventRecyclerView.adapter =
                             EventItemViewAdapter(EventArrayList, requireContext())

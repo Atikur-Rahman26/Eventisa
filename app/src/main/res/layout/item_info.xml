@@ -6,6 +6,7 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="10dp"
     android:background="@color/white"
+    android:forceDarkAllowed="false"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardUseCompatPadding="true"
@@ -13,6 +14,7 @@
     <LinearLayout
         android:background="@color/white"
         android:orientation="vertical"
+        android:forceDarkAllowed="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout

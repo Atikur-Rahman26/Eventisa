@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.atik.eventisa.Activity.RequestedEventAdminActivity
 import com.atik.eventisa.DataClasses.AddEventData
 import com.atik.eventisa.R
 import com.atik.eventisa.Activity.RequestedEventToUserInfo
@@ -50,8 +51,9 @@ class RequestedRefundAdapterEvent(private val RefundEvent:ArrayList<AddEventData
                 it.putExtra("HostEmail",currentItem.hostEmail.toString())
 
                 ContextCompat.startActivity(context, it, Bundle())
-
             }
+
+            (context as RequestedRefundAdminActivity).finish()
 
         }
     }

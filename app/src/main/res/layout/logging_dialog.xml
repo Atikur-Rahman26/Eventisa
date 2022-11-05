@@ -15,6 +15,7 @@
         android:layout_marginBottom="10dp"
         android:foregroundGravity="center"
         app:cardCornerRadius="20dp"
+        android:forceDarkAllowed="false"
         android:background="@color/white">
 
         <LinearLayout

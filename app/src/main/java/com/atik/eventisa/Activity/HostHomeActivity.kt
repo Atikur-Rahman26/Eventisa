@@ -29,5 +29,12 @@ class HostHomeActivity : AppCompatActivity() {
             val intent=Intent(this, SeeMyEventHostActivity::class.java)
             startActivity(intent)
         }
+
+        LogOutButton.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val intent=Intent(this,AppHome::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

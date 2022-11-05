@@ -49,8 +49,8 @@ class UserProfileActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.Home -> replaceFragment(Home())
                 R.id.Profile -> replaceFragment(Profile())
-
                 R.id.Favourite -> replaceFragment(Favourite())
+                R.id.Settings-> replaceFragment(Settings_())
                 else ->{
 
                 }

@@ -2,6 +2,7 @@ package com.atik.eventisa.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.atik.eventisa.Adapter.SeeRequestedEventAdapter
@@ -11,6 +12,7 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import kotlinx.android.synthetic.main.activity_requested_event_admin.*
 
 class RequestedEventAdminActivity : AppCompatActivity() {
 
@@ -44,9 +46,10 @@ class RequestedEventAdminActivity : AppCompatActivity() {
                     }
 
                     if(SeeRequestedEventList.isEmpty()){
-
+                        DataNothingShow.visibility=View.VISIBLE
                     }
                     else{
+                        DataNothingShow.visibility=View.INVISIBLE
                         SeeRequestedEventRecyclerView.adapter=
                             SeeRequestedEventAdapter(SeeRequestedEventList,this@RequestedEventAdminActivity)
                     }

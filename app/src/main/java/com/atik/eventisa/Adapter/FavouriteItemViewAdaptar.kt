@@ -80,7 +80,6 @@ class FavouriteItemViewAdaptar(private val eventList:ArrayList<AddEventData>,
                 it.putExtra("eventId",currentItem.eventId)
                 ContextCompat.startActivity(context, it, Bundle())
             }
-
         }
     }
 

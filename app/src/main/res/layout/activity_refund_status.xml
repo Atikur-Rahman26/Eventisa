@@ -31,12 +31,6 @@
                 android:src="@color/blue"/>
             <!-- Pic from firebase -->
 
-            <ImageView
-                android:id="@+id/Refund_Status_mapImage"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@color/black"
-                android:layout_marginTop="5dp"/>
             <TextView
                 android:id="@+id/Refund_Status_event_title"
                 android:layout_width="match_parent"

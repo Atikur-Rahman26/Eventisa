@@ -9,6 +9,7 @@
     android:layout_margin="@dimen/_15sdp"
     android:foreground="?selectableItemBackground"
     app:cardCornerRadius="12dp"
+    android:forceDarkAllowed="false"
     app:cardElevation="4dp"
     tools:ignore="SpeakableTextPresentCheck"
     android:background="@color/teal_200">

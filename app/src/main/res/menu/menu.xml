@@ -10,4 +10,8 @@
     <item android:title="Booked"
         android:id="@+id/Favourite"
         android:icon="@drawable/ic_ticket"/>
+    <item android:title="Refund"
+        android:id="@+id/Settings"
+        android:icon="@drawable/refund"/>
+
 </menu>

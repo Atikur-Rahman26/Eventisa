@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.atik.eventisa.Activity.RequestedEventAdminActivity
 import com.atik.eventisa.DataClasses.AddEventData
 import com.atik.eventisa.R
 import com.atik.eventisa.Activity.SeeRequestedEventDetails
@@ -75,6 +76,10 @@ class SeeRequestedEventAdapter(private val seeRequestedEventList: ArrayList<AddE
                 it.putExtra("hostmail",Hostmail)
                 ContextCompat.startActivity(context, it, Bundle())
             }
+            (context as RequestedEventAdminActivity).finish()
+
+
+
         }
     }
 
