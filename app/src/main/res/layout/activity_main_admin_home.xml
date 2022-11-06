@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/design_default_color_surface"
     android:forceDarkAllowed="false"
     tools:context=".Activity.MainAdminHomeActivity">
 
@@ -12,15 +12,15 @@
         android:id="@+id/EventRequestedAdmin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:text="Requested Event"
+        android:layout_marginTop="396dp"
         android:background="@drawable/button_bg"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:text="Requested Event"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,14 +28,30 @@
         android:id="@+id/RequestedRefundButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="Requested Refund"
+        android:layout_marginTop="36dp"
         android:background="@drawable/button_bg"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
+        android:text="Requested Refund"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/EventRequestedAdmin"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/EventRequestedAdmin"
         app:layout_constraintTop_toBottomOf="@+id/EventRequestedAdmin" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="407dp"
+        android:layout_height="258dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-9dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="418dp"
+            android:layout_height="230dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/index112" />
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
