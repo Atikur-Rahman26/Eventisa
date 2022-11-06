@@ -43,13 +43,15 @@
     <androidx.cardview.widget.CardView
         android:layout_width="407dp"
         android:layout_height="258dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="-9dp">
+        android:layout_marginBottom="146dp"
+        app:layout_constraintBottom_toTopOf="@+id/EventRequestedAdmin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="418dp"
-            android:layout_height="230dp"
+            android:layout_height="match_parent"
             android:scaleType="fitXY"
             app:srcCompat="@drawable/index112" />
     </androidx.cardview.widget.CardView>

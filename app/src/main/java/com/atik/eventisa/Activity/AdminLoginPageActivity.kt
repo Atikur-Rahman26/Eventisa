@@ -73,8 +73,11 @@ class AdminLoginPageActivity : AppCompatActivity() {
                             HostPhone=datasnapshot.child("hostPhone").value.toString()
                             HostName= HostFirstName+" "+ HostLastName
                             HostUserName=adminUserName
-                            println("Host name: ${HostName}\t")
                             flag=1
+                            break
+                        }
+                        else{
+                            flag=3
                         }
                     }
                     if(flag==1){
@@ -88,10 +91,13 @@ class AdminLoginPageActivity : AppCompatActivity() {
                             Toast.makeText(this@AdminLoginPageActivity,"Email or Password is wrong",Toast.LENGTH_SHORT).show()
                         }
                     }
-                    else{
-                        Toast.makeText(this@AdminLoginPageActivity,"sorry!!such type of admin name found",Toast.LENGTH_SHORT)
+                    else if(flag==3){
+                        dialog.dismiss()
+                        Toast.makeText(this@AdminLoginPageActivity,"sorry!!such type of admin name found",Toast.LENGTH_SHORT).show()
                     }
+
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {

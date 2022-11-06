@@ -67,7 +67,7 @@ class SeeMyEventHostAdapter(private val SeeMyEventArray:ArrayList<AddEventData>,
             Refund_EVENTDATE = currentItem.eventDate.toString()
             Refund_EVENTIMAGE = currentItem.imageUri.toString()
             val dialog= Dialog(context)
-            dialog.setContentView(R.layout.logging_dialog)
+            dialog.setContentView(R.layout.loading)
             if(dialog.window!=null){
                 dialog?.window!!.setBackgroundDrawable(ColorDrawable(0))
                 dialog.show()
