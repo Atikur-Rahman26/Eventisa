@@ -38,11 +38,7 @@ class RefundStatusActivity : AppCompatActivity() {
         favouriteReference.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.child(eventId).hasChild(uId)){
-                    RefundStatus.setText("Refund Processing...")
-                    RefundStatus.resources.getColor(R.color.lightBlue)
                     RefundFlag=true
-
-
                     /**
                      * if user wants to cancel refund request
                      *

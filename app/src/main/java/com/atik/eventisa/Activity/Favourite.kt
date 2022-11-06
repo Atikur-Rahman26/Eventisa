@@ -124,17 +124,21 @@ class Favourite : Fragment() {
                         }
                     }
                 }
-//                if(EventFavouriteList.isEmpty()){
-//                    showTextEmplty.visibility=View.VISIBLE
-//                }
-
+                if(EventFavouriteList.isEmpty()){
+                    IsEmptyData.visibility=View.VISIBLE
+                }
+                else{
                     try {
+                        IsEmptyData.visibility=View.INVISIBLE
                         favouriteRecyclerView.adapter =
                             FavouriteItemViewAdaptar(EventFavouriteList, requireContext())
                     }catch (e:Exception){
                         println(e.message)
                         Log.i(TAG, "onDataChange: ${e.message} ")
                     }
+                }
+
+
 
             }
 

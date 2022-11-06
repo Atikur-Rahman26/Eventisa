@@ -59,131 +59,137 @@ class signUpActivity : AppCompatActivity() {
                 var username:String=UserNameTextField.text.toString()
 
                 if(passWORD.length>=6) {
-                    if (Patterns.EMAIL_ADDRESS.matcher(emailTEXT).matches()) {
+                    if(phoneNumbeR.length==11){
+                        if (Patterns.EMAIL_ADDRESS.matcher(emailTEXT).matches()) {
 
-                        /**
-                         *for storing data to firestore
-                         * Dialog showing
+                            /**
+                             *for storing data to firestore
+                             * Dialog showing
+                             */
+                            dialog.show()
+
+
+                            val Storeuser = firestoreRef.collection("USERS")
+                            /*
+                        *Query for getting the result if the email is existed or not
                          */
-                        dialog.show()
+                            val queryForeEmail = Storeuser.whereEqualTo("Email", emailTEXT).get()
+                                .addOnSuccessListener { it ->
+                                    if (it.isEmpty) {
+                                        /*
+                                    *Query for getting the result if the username is existed or not
+                                     */
+                                        val queryForUserName =
+                                            Storeuser.whereEqualTo("userName", username).get()
+                                                .addOnSuccessListener { it ->
+                                                    if (it.isEmpty) {
+                                                        /**
+                                                         * Creating Id with email and password
+                                                         *
+                                                         * firebase authentication
+                                                         *
+                                                         */
+                                                        auth.createUserWithEmailAndPassword(
+                                                            emailTEXT,
+                                                            passWORD
+                                                        ).addOnCompleteListener(this) { task ->
+                                                            if (task.isSuccessful) {
+                                                                val user = auth.currentUser
+                                                                uId = auth.currentUser?.uid.toString()
+
+                                                                auth.currentUser?.sendEmailVerification()!!
+                                                                    .addOnSuccessListener {
+                                                                        Toast.makeText(
+                                                                            this,
+                                                                            "Please verify your mail",
+                                                                            Toast.LENGTH_SHORT
+                                                                        ).show()
+                                                                    }.addOnFailureListener {
+                                                                        Toast.makeText(
+                                                                            this,
+                                                                            "Failed to sent verification mail",
+                                                                            Toast.LENGTH_SHORT
+                                                                        ).show()
+                                                                    }
 
 
-                        val Storeuser = firestoreRef.collection("USERS")
-                        /*
-                    *Query for getting the result if the email is existed or not
-                     */
-                        val queryForeEmail = Storeuser.whereEqualTo("Email", emailTEXT).get()
-                            .addOnSuccessListener { it ->
-                                if (it.isEmpty) {
-                                    /*
-                                *Query for getting the result if the username is existed or not
-                                 */
-                                    val queryForUserName =
-                                        Storeuser.whereEqualTo("userName", username).get()
-                                            .addOnSuccessListener { it ->
-                                                if (it.isEmpty) {
-                                                    /**
-                                                     * Creating Id with email and password
-                                                     *
-                                                     * firebase authentication
-                                                     *
-                                                     */
-                                                    auth.createUserWithEmailAndPassword(
-                                                        emailTEXT,
-                                                        passWORD
-                                                    ).addOnCompleteListener(this) { task ->
-                                                        if (task.isSuccessful) {
-                                                            val user = auth.currentUser
-                                                            uId = auth.currentUser?.uid.toString()
+                                                                val USERS = hashMapOf(
+                                                                    "uid" to uId,
+                                                                    "userName" to username,
+                                                                    "phoneNumber" to phoneNumbeR,
+                                                                    "Email" to emailTEXT,
+                                                                    "lastName" to LNAME,
+                                                                    "firstName" to FNAME
+                                                                )
 
-                                                            auth.currentUser?.sendEmailVerification()!!
-                                                                .addOnSuccessListener {
-                                                                    Toast.makeText(
-                                                                        this,
-                                                                        "Please verify your mail",
-                                                                        Toast.LENGTH_SHORT
-                                                                    ).show()
-                                                                }.addOnFailureListener {
-                                                                Toast.makeText(
-                                                                    this,
-                                                                    "Failed to sent verification mail",
-                                                                    Toast.LENGTH_SHORT
-                                                                ).show()
-                                                            }
-
-
-                                                            val USERS = hashMapOf(
-                                                                "uid" to uId,
-                                                                "userName" to username,
-                                                                "phoneNumber" to phoneNumbeR,
-                                                                "Email" to emailTEXT,
-                                                                "lastName" to LNAME,
-                                                                "firstName" to FNAME
-                                                            )
-
-                                                            databse = FirebaseDatabase.getInstance()
-                                                                .getReference("UsersTable")
-                                                            username = username.toLowerCase()
-                                                            val User = UserInfo(
-                                                                FNAME,
-                                                                LNAME,
-                                                                emailTEXT,
-                                                                phoneNumbeR,
-                                                                username,
-                                                                uId
-                                                            )
-                                                            databse.child(username).setValue(User)
-                                                                .addOnSuccessListener {
+                                                                databse = FirebaseDatabase.getInstance()
+                                                                    .getReference("UsersTable")
+                                                                username = username.toLowerCase()
+                                                                val User = UserInfo(
+                                                                    FNAME,
+                                                                    LNAME,
+                                                                    emailTEXT,
+                                                                    phoneNumbeR,
+                                                                    username,
+                                                                    uId
+                                                                )
+                                                                databse.child(username).setValue(User)
+                                                                    .addOnSuccessListener {
 //                                                        user.document(username).set(USERS)
-                                                                    Storeuser.document(username)
-                                                                        .set(USERS)
+                                                                        Storeuser.document(username)
+                                                                            .set(USERS)
 
-                                                                    /**
-                                                                     * Clearing field
-                                                                     */
-                                                                    clearEverything()
-                                                                    dialog.dismiss()
-                                                                    val intent = Intent(
-                                                                        this,
-                                                                        Login::class.java
-                                                                    )
-                                                                    startActivity(intent)
-                                                                    finish()
-                                                                    Toast.makeText(
-                                                                        this,
-                                                                        "Successfully registered",
-                                                                        Toast.LENGTH_SHORT
-                                                                    ).show()
-                                                                }
+                                                                        /**
+                                                                         * Clearing field
+                                                                         */
+                                                                        clearEverything()
+                                                                        dialog.dismiss()
+                                                                        val intent = Intent(
+                                                                            this,
+                                                                            Login::class.java
+                                                                        )
+                                                                        startActivity(intent)
+                                                                        finish()
+                                                                        Toast.makeText(
+                                                                            this,
+                                                                            "Successfully registered",
+                                                                            Toast.LENGTH_SHORT
+                                                                        ).show()
+                                                                    }
+                                                            }
                                                         }
+                                                        /**
+                                                         *
+                                                         * Store the user data in firebase database
+                                                         * starting code  for  storing data
+                                                         **/
+                                                    } else {
+                                                        dialog.dismiss()
+                                                        Toast.makeText(
+                                                            this,
+                                                            "This username already registered",
+                                                            Toast.LENGTH_SHORT
+                                                        ).show()
                                                     }
-                                                    /**
-                                                     *
-                                                     * Store the user data in firebase database
-                                                     * starting code  for  storing data
-                                                     **/
-                                                } else {
-                                                    dialog.dismiss()
-                                                    Toast.makeText(
-                                                        this,
-                                                        "This username already registered",
-                                                        Toast.LENGTH_SHORT
-                                                    ).show()
                                                 }
-                                            }
-                                } else {
-                                    dialog.dismiss()
-                                    Toast.makeText(
-                                        this,
-                                        "This eamil already registered",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
+                                    } else {
+                                        dialog.dismiss()
+                                        Toast.makeText(
+                                            this,
+                                            "This eamil already registered",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
                                 }
-                            }
+                        }
+                        else{
+                            dialog.dismiss()
+                            Toast.makeText(this, "Email type is invalid", Toast.LENGTH_SHORT).show()
+                        }
                     }
                     else{
                         dialog.dismiss()
-                        Toast.makeText(this, "Email type is invalid", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this,"Phone number should be 11 digit",Toast.LENGTH_SHORT).show()
                     }
                 }
                 else {
@@ -202,6 +208,7 @@ class signUpActivity : AppCompatActivity() {
         AdminLoginPageButton.setOnClickListener{
             val intent=Intent(this, Login::class.java)
             startActivity(intent)
+            finish()
         }
 
     }

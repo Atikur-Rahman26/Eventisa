@@ -103,7 +103,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="5dp"
-            android:layout_marginStart="20dp"
 
             android:background="@drawable/count_background"
             android:hint="*********"
@@ -113,6 +112,7 @@
             android:textColor="@android:color/black"
             android:textColorHint="#757575"
             app:layout_constraintBottom_toTopOf="@+id/CreateAccount"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/passwordBox"
             app:layout_constraintVertical_bias="0.0" />
@@ -152,16 +152,7 @@
                 app:srcCompat="@drawable/loginframe" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="72dp"
-            android:layout_weight="5"
-            app:layout_constraintEnd_toEndOf="@+id/PassWordAdmin"
-            app:layout_constraintStart_toStartOf="@+id/PassWordAdmin"
-            app:layout_constraintTop_toBottomOf="@+id/passwordBox">
 
-        </LinearLayout>
 
         <TextView
             android:id="@+id/SignupActivitybutton"
@@ -195,14 +186,18 @@
             android:id="@+id/ForgotPasswordUserButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@color/smokyWhite"
             android:text="Forgot Passwaord?"
             android:textColor="@color/black"
             android:textSize="20sp"
-            android:layout_marginEnd="2dp"
             android:textStyle="bold|italic"
-            tools:layout_editor_absoluteX="205dp"
-            tools:layout_editor_absoluteY="564dp"
+            app:layout_constraintBottom_toTopOf="@+id/LoginButton"
+            app:layout_constraintEnd_toEndOf="@+id/PassWordAdmin"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/PassWordAdmin"
+            app:layout_constraintTop_toBottomOf="@+id/PassWordAdmin"
+            app:layout_constraintVertical_bias="0.0"
             tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

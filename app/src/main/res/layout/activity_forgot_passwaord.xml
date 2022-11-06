@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311">
+        app:layout_constraintVertical_bias="0.4">
 
         <TextView
             android:layout_width="wrap_content"
@@ -27,15 +27,18 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/EmaiSubmitTextView"
             android:layout_width="match_parent"
             android:layout_height="62dp"
+            android:background="@drawable/count_background"
+            android:hint="example@example.com"
+            android:paddingStart="15dp"
+            android:textColorHint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.344"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:id="@+id/EmaiSubmitTextView"
-            android:hint="example@example.com"
             app:layout_constraintVertical_bias="0.282" />
 
     </LinearLayout>
@@ -53,4 +56,17 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="411dp"
+        android:layout_height="205dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/index112" />
 </androidx.constraintlayout.widget.ConstraintLayout>

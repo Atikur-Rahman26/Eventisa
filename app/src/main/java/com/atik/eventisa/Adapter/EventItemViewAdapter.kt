@@ -117,9 +117,10 @@ class EventItemViewAdapter(private val eventList:ArrayList<AddEventData>,
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(favouriteAddedTest==true){
                         if(snapshot.child(eventid).hasChild(uId)){
-                            dbref.child(eventid).removeValue()
+                            dbref.child(eventid).child(uId).removeValue()
                             favouriteAddedTest=false
                             holder.favouritebutton.setBackgroundResource(R.drawable.favourites_shadow)
+
                         }
                         else{
                             dbref.child(eventid).child(uId).setValue(true)

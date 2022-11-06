@@ -1,23 +1,32 @@
 package com.atik.eventisa.Activity
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.atik.eventisa.DataClasses.Constants.Companion.email
 import com.atik.eventisa.DataClasses.Constants.Companion.fname
 import com.atik.eventisa.DataClasses.Constants.Companion.lname
 import com.atik.eventisa.DataClasses.Constants.Companion.phone
+import com.atik.eventisa.DataClasses.Constants.Companion.uId
 import com.atik.eventisa.DataClasses.Constants.Companion.username
 import com.atik.eventisa.R
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.item_email.*
 import kotlinx.android.synthetic.main.item_image.*
 import kotlinx.android.synthetic.main.item_info.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -71,7 +80,9 @@ class Profile : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
         super.onViewCreated(view, savedInstanceState)
+
 
 
         userUserNameProfileText.setText(username.toString())

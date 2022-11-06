@@ -24,6 +24,16 @@
             android:layout_margin="10dp"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Refund Processing...."
+                android:textSize="25sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                />
+
             <ImageView
                 android:id="@+id/Refund_Status_event_image"
                 android:layout_width="match_parent"
@@ -53,18 +63,6 @@
                 android:textColor="@color/black"/>
 
             <!--Give string here inside the text view to show description-->
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/RefundStatus"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@drawable/button_bg"
-                android:layout_marginBottom="10dp"
-                android:text="Request Refund"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/CancelRefundRequest"
